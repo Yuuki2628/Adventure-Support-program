@@ -70,6 +70,56 @@ namespace advAssistProgram
                     stats[i, j] = value;
                 }
             }
+
+            bool swap = true;
+            while(swap)
+            {
+                swap = false;
+                int sum1, sum2;
+                int p = 0;
+                while (p + 1 < enemiesNumber)
+                {
+                    sum1 = stats[p, 0][0];
+                    sum2 = stats[p + 1, 0][0];
+                    if (sum2 < sum1) // orders the stats using only the first letter
+                    {
+                        for (int m = 0; m < 6; m++)
+                            Switch(ref stats[p, m], ref stats[p + 1, m]);
+                        swap = true;
+                    }
+                    if(sum2 == sum1)
+                    {
+                        sum1 = stats[p, 1][0];
+                        sum2 = stats[p + 1, 1][0];
+                        if (sum2 < sum1) // orders the stats using only the second letter
+                        {
+                            for (int m = 0; m < 6; m++)
+                                Switch(ref stats[p, m], ref stats[p + 1, m]);
+                            swap = true;
+                        }
+                        if (sum2 == sum1)
+                        {
+                            sum1 = stats[p, 2][0];
+                            sum2 = stats[p + 1, 2][0];
+                            if (sum2 < sum1) // orders the stats using only the third letter
+                            {
+                                for (int m = 0; m < 6; m++)
+                                    Switch(ref stats[p, m], ref stats[p + 1, m]);
+                                swap = true;
+                            }
+                        }
+
+                    }
+                    p++;
+                }
+            }
+        }
+
+        public void Switch(ref string a, ref string b)
+        {
+            string temp = a;
+            a = b;
+            b = temp;
         }
 
         public string getName(int a)

@@ -10,9 +10,11 @@ using System.Windows.Forms;
 
 namespace advNegaCalculator
 {
-    public partial class FrmGoldCalculator : Form
+    public partial class FrmAdventureSupport : Form
     {
-        public FrmGoldCalculator()
+        StatsManager s;
+
+        public FrmAdventureSupport()
         {
             InitializeComponent();
         }
@@ -31,6 +33,11 @@ namespace advNegaCalculator
 
                 txtGoldInput.Text = output.ToString();
             }
+        }
+
+        private void btnLoad_Click(object sender, EventArgs e)
+        {
+            s = new StatsManager(txtPath.Text, 72);
         }
     }
 }

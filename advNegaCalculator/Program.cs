@@ -16,7 +16,7 @@ namespace advNegaCalculator
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmGoldCalculator());
+            Application.Run(new FrmAdventureSupport());
         }
     }
 }

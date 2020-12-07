@@ -46,16 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FrmGoldCalculator.cs">
+    <Compile Include="FrmAdventureSupport.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmGoldCalculator.Designer.cs">
-      <DependentUpon>FrmGoldCalculator.cs</DependentUpon>
+    <Compile Include="FrmAdventureSupport.Designer.cs">
+      <DependentUpon>FrmAdventureSupport.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FrmGoldCalculator.resx">
-      <DependentUpon>FrmGoldCalculator.cs</DependentUpon>
+    <Compile Include="StatsManager.cs" />
+    <EmbeddedResource Include="FrmAdventureSupport.resx">
+      <DependentUpon>FrmAdventureSupport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -37,7 +37,12 @@ namespace advNegaCalculator
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
-            s = new StatsManager(txtPath.Text, 72);
+            s = new StatsManager(txtPath.Text);
+
+            for(int i = 0; i < s.getEnemiesCount(); i ++)
+            {
+                cmbSelection.Items.Add(s.getName(i));
+            }
         }
     }
 }

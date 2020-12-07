@@ -37,7 +37,7 @@
             this.txtPath = new System.Windows.Forms.TextBox();
             this.btnLoad = new System.Windows.Forms.Button();
             this.lblSelect = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbSelection = new System.Windows.Forms.ComboBox();
             this.lblHP = new System.Windows.Forms.Label();
             this.lblDiplomacy = new System.Windows.Forms.Label();
             this.lblPhysicalDef = new System.Windows.Forms.Label();
@@ -112,7 +112,7 @@
             this.gbxStats.Controls.Add(this.lblPhysicalDef);
             this.gbxStats.Controls.Add(this.lblDiplomacy);
             this.gbxStats.Controls.Add(this.lblHP);
-            this.gbxStats.Controls.Add(this.comboBox1);
+            this.gbxStats.Controls.Add(this.cmbSelection);
             this.gbxStats.Controls.Add(this.lblSelect);
             this.gbxStats.Controls.Add(this.btnLoad);
             this.gbxStats.Controls.Add(this.txtPath);
@@ -163,15 +163,15 @@
             this.lblSelect.TabIndex = 4;
             this.lblSelect.Text = "Select an enemy";
             // 
-            // comboBox1
+            // cmbSelection
             // 
-            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.cmbSelection.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(98, 75);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(206, 21);
-            this.comboBox1.TabIndex = 5;
+            this.cmbSelection.FormattingEnabled = true;
+            this.cmbSelection.Location = new System.Drawing.Point(98, 75);
+            this.cmbSelection.Name = "cmbSelection";
+            this.cmbSelection.Size = new System.Drawing.Size(206, 21);
+            this.cmbSelection.TabIndex = 5;
             // 
             // lblHP
             // 
@@ -294,7 +294,7 @@
         private System.Windows.Forms.TextBox txtPath;
         private System.Windows.Forms.Label lblFilePath;
         private System.Windows.Forms.Button btnLoad;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbSelection;
         private System.Windows.Forms.Label lblSelect;
         private System.Windows.Forms.Label lblPersuasionDef2;
         private System.Windows.Forms.Label lblMagicalDef2;

@@ -64,7 +64,7 @@
             this.txtGoldInput.Size = new System.Drawing.Size(206, 20);
             this.txtGoldInput.TabIndex = 3;
             // 
-            // FrmGoldCalculaotr
+            // FrmGoldCalculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -75,8 +75,9 @@
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(310, 90);
             this.MinimumSize = new System.Drawing.Size(310, 90);
-            this.Name = "FrmGoldCalculaotr";
+            this.Name = "FrmGoldCalculator";
             this.Text = "Gold calculator by Yuuki";
+            this.TopMost = true;
             this.ResumeLayout(false);
             this.PerformLayout();
 

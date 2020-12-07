@@ -22,7 +22,17 @@ namespace advAssistProgram
             int i = 0, j = 0;
             //if (filePath == "")
                 //throw new Exception("You must put something in the file path");
-            StreamReader sr = new StreamReader(@"C:\stats.txt");
+            StreamReader sr = new StreamReader(@"C:\stats.txt"), numberFinder = new StreamReader(@"C:\stats.txt");
+
+            string counter = numberFinder.ReadLine();
+            while(counter != null)
+            {
+                if (counter.Contains("Is a boss"))
+                    enemiesNumber++;
+                counter = numberFinder.ReadLine();
+            }
+
+            stats = new string[enemiesNumber, 6];
 
             string line = sr.ReadLine();
             while(line != null)
@@ -30,7 +40,7 @@ namespace advAssistProgram
                 if(line.Contains(':') && !line.Contains("Is a boss")) //adds to the matrix only the useful lines(everything other than the boss status and the empty lines)
                 {
                     stats[i, j] = line;
-                    if (j < 6)
+                    if (j < 5)
                         j++;
                     else
                     {
@@ -38,9 +48,6 @@ namespace advAssistProgram
                         j = 0;
                     }
                 }
-                if (line.Contains("Is a boss"))
-                    enemiesNumber++;
-
                 line = sr.ReadLine();
             }
 
@@ -50,13 +57,16 @@ namespace advAssistProgram
                 string name = stats[i, 0];
                 name = name.Remove(0, 9);
                 name = name.Remove(name.IndexOf(" has "));
+                stats[i, 0] = name;
 
                 string value;
 
                 for(j = 1; j < 6; j++)
                 {
                     value = stats[i, j];
-                    value = value.Substring(value.IndexOf("["), value.IndexOf("]") - value.IndexOf("["));
+                    value = value.Substring(value.IndexOf("[") + 1, value.IndexOf("]") - value.IndexOf("["));
+                    value = value.Remove(value.IndexOf("]"), 1);
+                    stats[i, j] = value;
                 }
             }
         }
@@ -69,6 +79,31 @@ namespace advAssistProgram
         public int getEnemiesCount()
         {
             return enemiesNumber;
+        }
+
+        public string getHP(int i)
+        {
+            return stats[i, 1];
+        }
+
+        public string getDiplomacy(int i)
+        {
+            return stats[i, 2];
+        }
+
+        public string getPhysicalDefence(int i)
+        {
+            return stats[i, 3];
+        }
+
+        public string getMagicalDefence(int i)
+        {
+            return stats[i, 4];
+        }
+
+        public string getPersuasionDefence(int i)
+        {
+            return stats[i, 5];
         }
 
     }

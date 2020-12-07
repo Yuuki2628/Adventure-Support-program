@@ -33,21 +33,24 @@
             this.txtGoldInput = new System.Windows.Forms.TextBox();
             this.gbxGoldCalculator = new System.Windows.Forms.GroupBox();
             this.gbxStats = new System.Windows.Forms.GroupBox();
-            this.lblFilePath = new System.Windows.Forms.Label();
-            this.txtPath = new System.Windows.Forms.TextBox();
-            this.btnLoad = new System.Windows.Forms.Button();
-            this.lblSelect = new System.Windows.Forms.Label();
-            this.cmbSelection = new System.Windows.Forms.ComboBox();
-            this.lblHP = new System.Windows.Forms.Label();
-            this.lblDiplomacy = new System.Windows.Forms.Label();
-            this.lblPhysicalDef = new System.Windows.Forms.Label();
-            this.lblMagicalDef = new System.Windows.Forms.Label();
-            this.lblPersuasionDef = new System.Windows.Forms.Label();
             this.lblPersuasionDef2 = new System.Windows.Forms.Label();
             this.lblMagicalDef2 = new System.Windows.Forms.Label();
             this.lblPhysicalDef2 = new System.Windows.Forms.Label();
             this.lblDiplomacy2 = new System.Windows.Forms.Label();
             this.lblHP2 = new System.Windows.Forms.Label();
+            this.lblPersuasionDef = new System.Windows.Forms.Label();
+            this.lblMagicalDef = new System.Windows.Forms.Label();
+            this.lblPhysicalDef = new System.Windows.Forms.Label();
+            this.lblDiplomacy = new System.Windows.Forms.Label();
+            this.lblHP = new System.Windows.Forms.Label();
+            this.cmbSelection = new System.Windows.Forms.ComboBox();
+            this.lblSelect = new System.Windows.Forms.Label();
+            this.btnLoad = new System.Windows.Forms.Button();
+            this.txtPath = new System.Windows.Forms.TextBox();
+            this.lblFilePath = new System.Windows.Forms.Label();
+            this.pgbLoadedStats = new System.Windows.Forms.ProgressBar();
+            this.lblLoading = new System.Windows.Forms.Label();
+            this.btnUpdateStats = new System.Windows.Forms.Button();
             this.gbxGoldCalculator.SuspendLayout();
             this.gbxStats.SuspendLayout();
             this.SuspendLayout();
@@ -102,6 +105,9 @@
             this.gbxStats.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbxStats.Controls.Add(this.btnUpdateStats);
+            this.gbxStats.Controls.Add(this.lblLoading);
+            this.gbxStats.Controls.Add(this.pgbLoadedStats);
             this.gbxStats.Controls.Add(this.lblPersuasionDef2);
             this.gbxStats.Controls.Add(this.lblMagicalDef2);
             this.gbxStats.Controls.Add(this.lblPhysicalDef2);
@@ -123,100 +129,6 @@
             this.gbxStats.TabIndex = 5;
             this.gbxStats.TabStop = false;
             this.gbxStats.Text = "Custom bosses stats";
-            // 
-            // lblFilePath
-            // 
-            this.lblFilePath.AutoSize = true;
-            this.lblFilePath.Location = new System.Drawing.Point(6, 23);
-            this.lblFilePath.Name = "lblFilePath";
-            this.lblFilePath.Size = new System.Drawing.Size(116, 13);
-            this.lblFilePath.TabIndex = 1;
-            this.lblFilePath.Text = "Insert the stats file path";
-            // 
-            // txtPath
-            // 
-            this.txtPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPath.Location = new System.Drawing.Point(129, 20);
-            this.txtPath.Name = "txtPath";
-            this.txtPath.Size = new System.Drawing.Size(168, 20);
-            this.txtPath.TabIndex = 2;
-            // 
-            // btnLoad
-            // 
-            this.btnLoad.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLoad.Location = new System.Drawing.Point(9, 46);
-            this.btnLoad.Name = "btnLoad";
-            this.btnLoad.Size = new System.Drawing.Size(295, 23);
-            this.btnLoad.TabIndex = 3;
-            this.btnLoad.Text = "Load the stats";
-            this.btnLoad.UseVisualStyleBackColor = true;
-            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
-            // 
-            // lblSelect
-            // 
-            this.lblSelect.AutoSize = true;
-            this.lblSelect.Location = new System.Drawing.Point(6, 78);
-            this.lblSelect.Name = "lblSelect";
-            this.lblSelect.Size = new System.Drawing.Size(86, 13);
-            this.lblSelect.TabIndex = 4;
-            this.lblSelect.Text = "Select an enemy";
-            // 
-            // cmbSelection
-            // 
-            this.cmbSelection.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmbSelection.FormattingEnabled = true;
-            this.cmbSelection.Location = new System.Drawing.Point(98, 75);
-            this.cmbSelection.Name = "cmbSelection";
-            this.cmbSelection.Size = new System.Drawing.Size(206, 21);
-            this.cmbSelection.TabIndex = 5;
-            // 
-            // lblHP
-            // 
-            this.lblHP.AutoSize = true;
-            this.lblHP.Location = new System.Drawing.Point(9, 107);
-            this.lblHP.Name = "lblHP";
-            this.lblHP.Size = new System.Drawing.Size(22, 13);
-            this.lblHP.TabIndex = 6;
-            this.lblHP.Text = "HP";
-            // 
-            // lblDiplomacy
-            // 
-            this.lblDiplomacy.AutoSize = true;
-            this.lblDiplomacy.Location = new System.Drawing.Point(9, 124);
-            this.lblDiplomacy.Name = "lblDiplomacy";
-            this.lblDiplomacy.Size = new System.Drawing.Size(56, 13);
-            this.lblDiplomacy.TabIndex = 7;
-            this.lblDiplomacy.Text = "Diplomacy";
-            // 
-            // lblPhysicalDef
-            // 
-            this.lblPhysicalDef.AutoSize = true;
-            this.lblPhysicalDef.Location = new System.Drawing.Point(9, 141);
-            this.lblPhysicalDef.Name = "lblPhysicalDef";
-            this.lblPhysicalDef.Size = new System.Drawing.Size(88, 13);
-            this.lblPhysicalDef.TabIndex = 8;
-            this.lblPhysicalDef.Text = "Physical defence";
-            // 
-            // lblMagicalDef
-            // 
-            this.lblMagicalDef.AutoSize = true;
-            this.lblMagicalDef.Location = new System.Drawing.Point(9, 158);
-            this.lblMagicalDef.Name = "lblMagicalDef";
-            this.lblMagicalDef.Size = new System.Drawing.Size(86, 13);
-            this.lblMagicalDef.TabIndex = 9;
-            this.lblMagicalDef.Text = "Magical defence";
-            // 
-            // lblPersuasionDef
-            // 
-            this.lblPersuasionDef.AutoSize = true;
-            this.lblPersuasionDef.Location = new System.Drawing.Point(9, 175);
-            this.lblPersuasionDef.Name = "lblPersuasionDef";
-            this.lblPersuasionDef.Size = new System.Drawing.Size(101, 13);
-            this.lblPersuasionDef.TabIndex = 10;
-            this.lblPersuasionDef.Text = "Persuasion defence";
             // 
             // lblPersuasionDef2
             // 
@@ -263,6 +175,126 @@
             this.lblHP2.TabIndex = 11;
             this.lblHP2.Text = "0000.0";
             // 
+            // lblPersuasionDef
+            // 
+            this.lblPersuasionDef.AutoSize = true;
+            this.lblPersuasionDef.Location = new System.Drawing.Point(9, 175);
+            this.lblPersuasionDef.Name = "lblPersuasionDef";
+            this.lblPersuasionDef.Size = new System.Drawing.Size(101, 13);
+            this.lblPersuasionDef.TabIndex = 10;
+            this.lblPersuasionDef.Text = "Persuasion defence";
+            // 
+            // lblMagicalDef
+            // 
+            this.lblMagicalDef.AutoSize = true;
+            this.lblMagicalDef.Location = new System.Drawing.Point(9, 158);
+            this.lblMagicalDef.Name = "lblMagicalDef";
+            this.lblMagicalDef.Size = new System.Drawing.Size(86, 13);
+            this.lblMagicalDef.TabIndex = 9;
+            this.lblMagicalDef.Text = "Magical defence";
+            // 
+            // lblPhysicalDef
+            // 
+            this.lblPhysicalDef.AutoSize = true;
+            this.lblPhysicalDef.Location = new System.Drawing.Point(9, 141);
+            this.lblPhysicalDef.Name = "lblPhysicalDef";
+            this.lblPhysicalDef.Size = new System.Drawing.Size(88, 13);
+            this.lblPhysicalDef.TabIndex = 8;
+            this.lblPhysicalDef.Text = "Physical defence";
+            // 
+            // lblDiplomacy
+            // 
+            this.lblDiplomacy.AutoSize = true;
+            this.lblDiplomacy.Location = new System.Drawing.Point(9, 124);
+            this.lblDiplomacy.Name = "lblDiplomacy";
+            this.lblDiplomacy.Size = new System.Drawing.Size(56, 13);
+            this.lblDiplomacy.TabIndex = 7;
+            this.lblDiplomacy.Text = "Diplomacy";
+            // 
+            // lblHP
+            // 
+            this.lblHP.AutoSize = true;
+            this.lblHP.Location = new System.Drawing.Point(9, 107);
+            this.lblHP.Name = "lblHP";
+            this.lblHP.Size = new System.Drawing.Size(22, 13);
+            this.lblHP.TabIndex = 6;
+            this.lblHP.Text = "HP";
+            // 
+            // cmbSelection
+            // 
+            this.cmbSelection.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbSelection.FormattingEnabled = true;
+            this.cmbSelection.Location = new System.Drawing.Point(98, 75);
+            this.cmbSelection.Name = "cmbSelection";
+            this.cmbSelection.Size = new System.Drawing.Size(206, 21);
+            this.cmbSelection.TabIndex = 5;
+            // 
+            // lblSelect
+            // 
+            this.lblSelect.AutoSize = true;
+            this.lblSelect.Location = new System.Drawing.Point(6, 78);
+            this.lblSelect.Name = "lblSelect";
+            this.lblSelect.Size = new System.Drawing.Size(86, 13);
+            this.lblSelect.TabIndex = 4;
+            this.lblSelect.Text = "Select an enemy";
+            // 
+            // btnLoad
+            // 
+            this.btnLoad.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLoad.Location = new System.Drawing.Point(9, 46);
+            this.btnLoad.Name = "btnLoad";
+            this.btnLoad.Size = new System.Drawing.Size(295, 23);
+            this.btnLoad.TabIndex = 3;
+            this.btnLoad.Text = "Load the stats";
+            this.btnLoad.UseVisualStyleBackColor = true;
+            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
+            // 
+            // txtPath
+            // 
+            this.txtPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPath.Location = new System.Drawing.Point(129, 20);
+            this.txtPath.Name = "txtPath";
+            this.txtPath.Size = new System.Drawing.Size(168, 20);
+            this.txtPath.TabIndex = 2;
+            // 
+            // lblFilePath
+            // 
+            this.lblFilePath.AutoSize = true;
+            this.lblFilePath.Location = new System.Drawing.Point(6, 23);
+            this.lblFilePath.Name = "lblFilePath";
+            this.lblFilePath.Size = new System.Drawing.Size(116, 13);
+            this.lblFilePath.TabIndex = 1;
+            this.lblFilePath.Text = "Insert the stats file path";
+            // 
+            // pgbLoadedStats
+            // 
+            this.pgbLoadedStats.Location = new System.Drawing.Point(154, 168);
+            this.pgbLoadedStats.Name = "pgbLoadedStats";
+            this.pgbLoadedStats.Size = new System.Drawing.Size(150, 23);
+            this.pgbLoadedStats.TabIndex = 16;
+            // 
+            // lblLoading
+            // 
+            this.lblLoading.AutoSize = true;
+            this.lblLoading.Location = new System.Drawing.Point(238, 152);
+            this.lblLoading.Name = "lblLoading";
+            this.lblLoading.Size = new System.Drawing.Size(66, 13);
+            this.lblLoading.TabIndex = 17;
+            this.lblLoading.Text = "Loading bar:";
+            // 
+            // btnUpdateStats
+            // 
+            this.btnUpdateStats.Location = new System.Drawing.Point(172, 107);
+            this.btnUpdateStats.Name = "btnUpdateStats";
+            this.btnUpdateStats.Size = new System.Drawing.Size(132, 30);
+            this.btnUpdateStats.TabIndex = 18;
+            this.btnUpdateStats.Text = "Update stats";
+            this.btnUpdateStats.UseVisualStyleBackColor = true;
+            this.btnUpdateStats.Click += new System.EventHandler(this.btnUpdateStats_Click);
+            // 
             // FrmAdventureSupport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -274,7 +306,7 @@
             this.MinimumSize = new System.Drawing.Size(350, 330);
             this.Name = "FrmAdventureSupport";
             this.ShowIcon = false;
-            this.Text = "Gold calculator by Yuuki";
+            this.Text = "Adventure assist program by Yuuki";
             this.TopMost = true;
             this.gbxGoldCalculator.ResumeLayout(false);
             this.gbxGoldCalculator.PerformLayout();
@@ -306,6 +338,9 @@
         private System.Windows.Forms.Label lblPhysicalDef;
         private System.Windows.Forms.Label lblDiplomacy;
         private System.Windows.Forms.Label lblHP;
+        private System.Windows.Forms.Label lblLoading;
+        private System.Windows.Forms.ProgressBar pgbLoadedStats;
+        private System.Windows.Forms.Button btnUpdateStats;
     }
 }
 

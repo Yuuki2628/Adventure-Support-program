@@ -39,10 +39,22 @@ namespace advAssistProgram
         {
             s = new StatsManager(txtPath.Text);
 
-            for(int i = 0; i < s.getEnemiesCount(); i ++)
+            pgbLoadedStats.Maximum = s.getEnemiesCount();
+
+            for (int i = 0; i < s.getEnemiesCount(); i++)
             {
                 cmbSelection.Items.Add(s.getName(i));
+                pgbLoadedStats.Value++;
             }
+        }
+
+        private void btnUpdateStats_Click(object sender, EventArgs e)
+        {
+            lblHP2.Text = s.getHP(cmbSelection.SelectedIndex);
+            lblDiplomacy2.Text = s.getHP(cmbSelection.SelectedIndex);
+            lblPhysicalDef2.Text = s.getPhysicalDefence(cmbSelection.SelectedIndex);
+            lblMagicalDef2.Text = s.getMagicalDefence(cmbSelection.SelectedIndex);
+            lblPersuasionDef2.Text = s.getPersuasionDefence(cmbSelection.SelectedIndex);
         }
     }
 }

@@ -20,10 +20,11 @@ namespace advAssistProgram
         {
             string filePath = @Path;
             int i = 0, j = 0;
-            //if (filePath == "")
-                //throw new Exception("You must put something in the file path");
-            StreamReader sr = new StreamReader(@"C:\stats.txt"), numberFinder = new StreamReader(@"C:\stats.txt");
+            if (filePath == "")
+                throw new Exception("You must put something in the file path");
+            StreamReader sr = new StreamReader(Path), numberFinder = new StreamReader(Path); 
 
+            //uso numberFinder per ottenere il numero di creture di cui conosco le statistiche
             string counter = numberFinder.ReadLine();
             while(counter != null)
             {
@@ -37,7 +38,7 @@ namespace advAssistProgram
             string line = sr.ReadLine();
             while(line != null)
             {
-                if(line.Contains(':') && !line.Contains("Is a boss")) //adds to the matrix only the useful lines(everything other than the boss status and the empty lines)
+                if(line.Contains(':') && !line.Contains("Is a boss")) //aggiungo alla matrice solo righe con contenuto utile
                 {
                     stats[i, j] = line;
                     if (j < 5)
@@ -51,7 +52,7 @@ namespace advAssistProgram
                 line = sr.ReadLine();
             }
 
-            for(i = 0; i < enemiesNumber; i ++)
+            for(i = 0; i < enemiesNumber; i ++) // rimuovo le parti di testo non necessarie
             {
                 //j = 0, prima riga, rimuovo tutto tranne il nome del boss
                 string name = stats[i, 0];

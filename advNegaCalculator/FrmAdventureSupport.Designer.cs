@@ -259,6 +259,7 @@
             this.txtPath.Name = "txtPath";
             this.txtPath.Size = new System.Drawing.Size(168, 20);
             this.txtPath.TabIndex = 2;
+            this.txtPath.Text = "C:\\stats.txt";
             // 
             // lblFilePath
             // 
@@ -279,11 +280,11 @@
             // lblLoading
             // 
             this.lblLoading.AutoSize = true;
-            this.lblLoading.Location = new System.Drawing.Point(238, 152);
+            this.lblLoading.Location = new System.Drawing.Point(232, 152);
             this.lblLoading.Name = "lblLoading";
-            this.lblLoading.Size = new System.Drawing.Size(66, 13);
+            this.lblLoading.Size = new System.Drawing.Size(72, 13);
             this.lblLoading.TabIndex = 17;
-            this.lblLoading.Text = "Loading bar:";
+            this.lblLoading.Text = "Loading bar...";
             // 
             // btnUpdateStats
             // 

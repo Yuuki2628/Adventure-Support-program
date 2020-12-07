@@ -1,4 +1,4 @@
-﻿namespace advNegaCalculator
+﻿namespace advAssistProgram
 {
     partial class FrmAdventureSupport
     {

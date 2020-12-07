@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace advNegaCalculator
+namespace advAssistProgram
 {
     class StatsManager
     {
@@ -27,7 +27,7 @@ namespace advNegaCalculator
             string line = sr.ReadLine();
             while(line != null)
             {
-                if(line.Contains(':') && !line.Contains("Is a boss")) //aggiunge alla matrice tutte le line utili
+                if(line.Contains(':') && !line.Contains("Is a boss")) //adds to the matrix only the useful lines(everything other than the boss status and the empty lines)
                 {
                     stats[i, j] = line;
                     if (j < 6)

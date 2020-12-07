@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace advNegaCalculator
+namespace advAssistProgram
 {
     public partial class FrmAdventureSupport : Form
     {

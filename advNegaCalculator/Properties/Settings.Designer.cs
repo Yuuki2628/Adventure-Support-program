@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace advNegaCalculator.Properties
+namespace advAssistProgram.Properties
 {
 
 

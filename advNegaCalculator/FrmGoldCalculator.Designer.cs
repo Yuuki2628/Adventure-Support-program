@@ -47,7 +47,7 @@
             // btnElaborate
             // 
             this.btnElaborate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnElaborate.Location = new System.Drawing.Point(216, 9);
+            this.btnElaborate.Location = new System.Drawing.Point(226, 9);
             this.btnElaborate.Name = "btnElaborate";
             this.btnElaborate.Size = new System.Drawing.Size(75, 37);
             this.btnElaborate.TabIndex = 2;
@@ -61,19 +61,18 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtGoldInput.Location = new System.Drawing.Point(6, 26);
             this.txtGoldInput.Name = "txtGoldInput";
-            this.txtGoldInput.Size = new System.Drawing.Size(206, 20);
+            this.txtGoldInput.Size = new System.Drawing.Size(216, 20);
             this.txtGoldInput.TabIndex = 3;
             // 
             // FrmGoldCalculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(294, 51);
+            this.ClientSize = new System.Drawing.Size(304, 51);
             this.Controls.Add(this.txtGoldInput);
             this.Controls.Add(this.btnElaborate);
             this.Controls.Add(this.lblInsert);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(310, 90);
             this.MinimumSize = new System.Drawing.Size(310, 90);
             this.Name = "FrmGoldCalculator";
             this.Text = "Gold calculator by Yuuki";

@@ -33,6 +33,7 @@
             this.txtGoldInput = new System.Windows.Forms.TextBox();
             this.gbxGoldCalculator = new System.Windows.Forms.GroupBox();
             this.gbxStats = new System.Windows.Forms.GroupBox();
+            this.btnUpdateStats = new System.Windows.Forms.Button();
             this.lblPersuasionDef2 = new System.Windows.Forms.Label();
             this.lblMagicalDef2 = new System.Windows.Forms.Label();
             this.lblPhysicalDef2 = new System.Windows.Forms.Label();
@@ -48,9 +49,6 @@
             this.btnLoad = new System.Windows.Forms.Button();
             this.txtPath = new System.Windows.Forms.TextBox();
             this.lblFilePath = new System.Windows.Forms.Label();
-            this.pgbLoadedStats = new System.Windows.Forms.ProgressBar();
-            this.lblLoading = new System.Windows.Forms.Label();
-            this.btnUpdateStats = new System.Windows.Forms.Button();
             this.gbxGoldCalculator.SuspendLayout();
             this.gbxStats.SuspendLayout();
             this.SuspendLayout();
@@ -106,8 +104,6 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gbxStats.Controls.Add(this.btnUpdateStats);
-            this.gbxStats.Controls.Add(this.lblLoading);
-            this.gbxStats.Controls.Add(this.pgbLoadedStats);
             this.gbxStats.Controls.Add(this.lblPersuasionDef2);
             this.gbxStats.Controls.Add(this.lblMagicalDef2);
             this.gbxStats.Controls.Add(this.lblPhysicalDef2);
@@ -129,6 +125,16 @@
             this.gbxStats.TabIndex = 5;
             this.gbxStats.TabStop = false;
             this.gbxStats.Text = "Custom bosses stats";
+            // 
+            // btnUpdateStats
+            // 
+            this.btnUpdateStats.Location = new System.Drawing.Point(172, 107);
+            this.btnUpdateStats.Name = "btnUpdateStats";
+            this.btnUpdateStats.Size = new System.Drawing.Size(132, 81);
+            this.btnUpdateStats.TabIndex = 18;
+            this.btnUpdateStats.Text = "Update stats";
+            this.btnUpdateStats.UseVisualStyleBackColor = true;
+            this.btnUpdateStats.Click += new System.EventHandler(this.btnUpdateStats_Click);
             // 
             // lblPersuasionDef2
             // 
@@ -270,32 +276,6 @@
             this.lblFilePath.TabIndex = 1;
             this.lblFilePath.Text = "Insert the stats file path";
             // 
-            // pgbLoadedStats
-            // 
-            this.pgbLoadedStats.Location = new System.Drawing.Point(154, 168);
-            this.pgbLoadedStats.Name = "pgbLoadedStats";
-            this.pgbLoadedStats.Size = new System.Drawing.Size(150, 23);
-            this.pgbLoadedStats.TabIndex = 16;
-            // 
-            // lblLoading
-            // 
-            this.lblLoading.AutoSize = true;
-            this.lblLoading.Location = new System.Drawing.Point(232, 152);
-            this.lblLoading.Name = "lblLoading";
-            this.lblLoading.Size = new System.Drawing.Size(72, 13);
-            this.lblLoading.TabIndex = 17;
-            this.lblLoading.Text = "Loading bar...";
-            // 
-            // btnUpdateStats
-            // 
-            this.btnUpdateStats.Location = new System.Drawing.Point(172, 107);
-            this.btnUpdateStats.Name = "btnUpdateStats";
-            this.btnUpdateStats.Size = new System.Drawing.Size(132, 30);
-            this.btnUpdateStats.TabIndex = 18;
-            this.btnUpdateStats.Text = "Update stats";
-            this.btnUpdateStats.UseVisualStyleBackColor = true;
-            this.btnUpdateStats.Click += new System.EventHandler(this.btnUpdateStats_Click);
-            // 
             // FrmAdventureSupport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -339,8 +319,6 @@
         private System.Windows.Forms.Label lblPhysicalDef;
         private System.Windows.Forms.Label lblDiplomacy;
         private System.Windows.Forms.Label lblHP;
-        private System.Windows.Forms.Label lblLoading;
-        private System.Windows.Forms.ProgressBar pgbLoadedStats;
         private System.Windows.Forms.Button btnUpdateStats;
     }
 }

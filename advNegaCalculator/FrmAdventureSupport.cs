@@ -18,12 +18,10 @@ namespace advAssistProgram
         {
             InitializeComponent();
 
-            pgbLoadedStats.Maximum = s.getEnemiesCount();
 
             for (int i = 0; i < s.getEnemiesCount(); i++)
             {
                 cmbSelection.Items.Add(s.getName(i));
-                pgbLoadedStats.Value++;
             }
             cmbSelection.SelectedIndex = 0;
         }
@@ -38,7 +36,12 @@ namespace advAssistProgram
                 while (input.IndexOf(',') >= 0)
                     input = input.Remove(input.IndexOf(','), 1);
 
-                int output = Convert.ToInt32(Convert.ToInt32(input) * 0.90) - 1;
+                int output;
+
+                if (!int.TryParse(input, out output))
+                    output = 0;
+
+                output = Convert.ToInt32(output * 0.90) - 1;
 
                 txtGoldInput.Text = output.ToString();
             }
@@ -46,17 +49,13 @@ namespace advAssistProgram
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
-            pgbLoadedStats.Value = 0;
             cmbSelection.Items.Clear();
 
             s = new StatsManager(txtPath.Text);
 
-            pgbLoadedStats.Maximum = s.getEnemiesCount();
-
             for (int i = 0; i < s.getEnemiesCount(); i++)
             {
                 cmbSelection.Items.Add(s.getName(i));
-                pgbLoadedStats.Value++;
             }
             cmbSelection.SelectedIndex = 0;
         }

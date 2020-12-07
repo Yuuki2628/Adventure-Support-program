@@ -24,7 +24,7 @@ namespace advAssistProgram
                 throw new Exception("You must put something in the file path");
             StreamReader sr = new StreamReader(Path), numberFinder = new StreamReader(Path); 
 
-            //uso numberFinder per ottenere il numero di creture di cui conosco le statistiche
+            //uso numberFinder per ottenere il numero di creature di cui conosco le statistiche
             string counter = numberFinder.ReadLine();
             while(counter != null)
             {
@@ -65,8 +65,7 @@ namespace advAssistProgram
                 for(j = 1; j < 6; j++)
                 {
                     value = stats[i, j];
-                    value = value.Substring(value.IndexOf("[") + 1, value.IndexOf("]") - value.IndexOf("["));
-                    value = value.Remove(value.IndexOf("]"), 1);
+                    value = value.Substring(value.IndexOf("[") + 1, value.IndexOf("]") - value.IndexOf("[") - 1);
                     stats[i, j] = value;
                 }
             }

@@ -33,7 +33,6 @@
             this.txtGoldInput = new System.Windows.Forms.TextBox();
             this.gbxGoldCalculator = new System.Windows.Forms.GroupBox();
             this.gbxStats = new System.Windows.Forms.GroupBox();
-            this.btnUpdateStats = new System.Windows.Forms.Button();
             this.lblPersuasionDef2 = new System.Windows.Forms.Label();
             this.lblMagicalDef2 = new System.Windows.Forms.Label();
             this.lblPhysicalDef2 = new System.Windows.Forms.Label();
@@ -61,7 +60,7 @@
             this.lblInsert.Location = new System.Drawing.Point(6, 16);
             this.lblInsert.Name = "lblInsert";
             this.lblInsert.Size = new System.Drawing.Size(201, 13);
-            this.lblInsert.TabIndex = 1;
+            this.lblInsert.TabIndex = 0;
             this.lblInsert.Text = "Insert how much gold you currently have:";
             // 
             // btnElaborate
@@ -82,7 +81,7 @@
             this.txtGoldInput.Location = new System.Drawing.Point(9, 35);
             this.txtGoldInput.Name = "txtGoldInput";
             this.txtGoldInput.Size = new System.Drawing.Size(207, 20);
-            this.txtGoldInput.TabIndex = 3;
+            this.txtGoldInput.TabIndex = 1;
             // 
             // gbxGoldCalculator
             // 
@@ -94,7 +93,7 @@
             this.gbxGoldCalculator.Location = new System.Drawing.Point(12, 12);
             this.gbxGoldCalculator.Name = "gbxGoldCalculator";
             this.gbxGoldCalculator.Size = new System.Drawing.Size(310, 64);
-            this.gbxGoldCalculator.TabIndex = 4;
+            this.gbxGoldCalculator.TabIndex = 0;
             this.gbxGoldCalculator.TabStop = false;
             this.gbxGoldCalculator.Text = "Gold Calculator for negaverse";
             // 
@@ -103,7 +102,6 @@
             this.gbxStats.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbxStats.Controls.Add(this.btnUpdateStats);
             this.gbxStats.Controls.Add(this.lblPersuasionDef2);
             this.gbxStats.Controls.Add(this.lblMagicalDef2);
             this.gbxStats.Controls.Add(this.lblPhysicalDef2);
@@ -122,21 +120,9 @@
             this.gbxStats.Location = new System.Drawing.Point(12, 82);
             this.gbxStats.Name = "gbxStats";
             this.gbxStats.Size = new System.Drawing.Size(310, 197);
-            this.gbxStats.TabIndex = 5;
+            this.gbxStats.TabIndex = 1;
             this.gbxStats.TabStop = false;
             this.gbxStats.Text = "Custom bosses stats";
-            // 
-            // btnUpdateStats
-            // 
-            this.btnUpdateStats.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnUpdateStats.Location = new System.Drawing.Point(172, 107);
-            this.btnUpdateStats.Name = "btnUpdateStats";
-            this.btnUpdateStats.Size = new System.Drawing.Size(132, 81);
-            this.btnUpdateStats.TabIndex = 18;
-            this.btnUpdateStats.Text = "Update stats";
-            this.btnUpdateStats.UseVisualStyleBackColor = true;
-            this.btnUpdateStats.Click += new System.EventHandler(this.btnUpdateStats_Click);
             // 
             // lblPersuasionDef2
             // 
@@ -144,7 +130,7 @@
             this.lblPersuasionDef2.Location = new System.Drawing.Point(126, 175);
             this.lblPersuasionDef2.Name = "lblPersuasionDef2";
             this.lblPersuasionDef2.Size = new System.Drawing.Size(22, 13);
-            this.lblPersuasionDef2.TabIndex = 15;
+            this.lblPersuasionDef2.TabIndex = 14;
             this.lblPersuasionDef2.Text = "0.0";
             // 
             // lblMagicalDef2
@@ -153,7 +139,7 @@
             this.lblMagicalDef2.Location = new System.Drawing.Point(126, 158);
             this.lblMagicalDef2.Name = "lblMagicalDef2";
             this.lblMagicalDef2.Size = new System.Drawing.Size(22, 13);
-            this.lblMagicalDef2.TabIndex = 14;
+            this.lblMagicalDef2.TabIndex = 12;
             this.lblMagicalDef2.Text = "0.0";
             // 
             // lblPhysicalDef2
@@ -162,7 +148,7 @@
             this.lblPhysicalDef2.Location = new System.Drawing.Point(126, 141);
             this.lblPhysicalDef2.Name = "lblPhysicalDef2";
             this.lblPhysicalDef2.Size = new System.Drawing.Size(22, 13);
-            this.lblPhysicalDef2.TabIndex = 13;
+            this.lblPhysicalDef2.TabIndex = 10;
             this.lblPhysicalDef2.Text = "0.0";
             // 
             // lblDiplomacy2
@@ -171,7 +157,7 @@
             this.lblDiplomacy2.Location = new System.Drawing.Point(126, 124);
             this.lblDiplomacy2.Name = "lblDiplomacy2";
             this.lblDiplomacy2.Size = new System.Drawing.Size(40, 13);
-            this.lblDiplomacy2.TabIndex = 12;
+            this.lblDiplomacy2.TabIndex = 8;
             this.lblDiplomacy2.Text = "0000.0";
             // 
             // lblHP2
@@ -180,7 +166,7 @@
             this.lblHP2.Location = new System.Drawing.Point(126, 107);
             this.lblHP2.Name = "lblHP2";
             this.lblHP2.Size = new System.Drawing.Size(40, 13);
-            this.lblHP2.TabIndex = 11;
+            this.lblHP2.TabIndex = 6;
             this.lblHP2.Text = "0000.0";
             // 
             // lblPersuasionDef
@@ -189,7 +175,7 @@
             this.lblPersuasionDef.Location = new System.Drawing.Point(9, 175);
             this.lblPersuasionDef.Name = "lblPersuasionDef";
             this.lblPersuasionDef.Size = new System.Drawing.Size(101, 13);
-            this.lblPersuasionDef.TabIndex = 10;
+            this.lblPersuasionDef.TabIndex = 13;
             this.lblPersuasionDef.Text = "Persuasion defence";
             // 
             // lblMagicalDef
@@ -198,7 +184,7 @@
             this.lblMagicalDef.Location = new System.Drawing.Point(9, 158);
             this.lblMagicalDef.Name = "lblMagicalDef";
             this.lblMagicalDef.Size = new System.Drawing.Size(86, 13);
-            this.lblMagicalDef.TabIndex = 9;
+            this.lblMagicalDef.TabIndex = 11;
             this.lblMagicalDef.Text = "Magical defence";
             // 
             // lblPhysicalDef
@@ -207,7 +193,7 @@
             this.lblPhysicalDef.Location = new System.Drawing.Point(9, 141);
             this.lblPhysicalDef.Name = "lblPhysicalDef";
             this.lblPhysicalDef.Size = new System.Drawing.Size(88, 13);
-            this.lblPhysicalDef.TabIndex = 8;
+            this.lblPhysicalDef.TabIndex = 9;
             this.lblPhysicalDef.Text = "Physical defence";
             // 
             // lblDiplomacy
@@ -225,7 +211,7 @@
             this.lblHP.Location = new System.Drawing.Point(9, 107);
             this.lblHP.Name = "lblHP";
             this.lblHP.Size = new System.Drawing.Size(22, 13);
-            this.lblHP.TabIndex = 6;
+            this.lblHP.TabIndex = 5;
             this.lblHP.Text = "HP";
             // 
             // cmbSelection
@@ -238,7 +224,8 @@
             this.cmbSelection.Location = new System.Drawing.Point(98, 75);
             this.cmbSelection.Name = "cmbSelection";
             this.cmbSelection.Size = new System.Drawing.Size(206, 21);
-            this.cmbSelection.TabIndex = 5;
+            this.cmbSelection.TabIndex = 4;
+            this.cmbSelection.SelectedIndexChanged += new System.EventHandler(this.cmbSelection_SelectedIndexChanged);
             // 
             // lblSelect
             // 
@@ -246,7 +233,7 @@
             this.lblSelect.Location = new System.Drawing.Point(6, 78);
             this.lblSelect.Name = "lblSelect";
             this.lblSelect.Size = new System.Drawing.Size(86, 13);
-            this.lblSelect.TabIndex = 4;
+            this.lblSelect.TabIndex = 3;
             this.lblSelect.Text = "Select an enemy";
             // 
             // btnLoad
@@ -256,7 +243,7 @@
             this.btnLoad.Location = new System.Drawing.Point(9, 46);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(295, 23);
-            this.btnLoad.TabIndex = 3;
+            this.btnLoad.TabIndex = 2;
             this.btnLoad.Text = "Load the stats";
             this.btnLoad.UseVisualStyleBackColor = true;
             this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
@@ -268,7 +255,7 @@
             this.txtPath.Location = new System.Drawing.Point(129, 20);
             this.txtPath.Name = "txtPath";
             this.txtPath.Size = new System.Drawing.Size(168, 20);
-            this.txtPath.TabIndex = 2;
+            this.txtPath.TabIndex = 1;
             this.txtPath.Text = "C:\\stats.txt";
             // 
             // lblFilePath
@@ -277,7 +264,7 @@
             this.lblFilePath.Location = new System.Drawing.Point(6, 23);
             this.lblFilePath.Name = "lblFilePath";
             this.lblFilePath.Size = new System.Drawing.Size(116, 13);
-            this.lblFilePath.TabIndex = 1;
+            this.lblFilePath.TabIndex = 0;
             this.lblFilePath.Text = "Insert the stats file path";
             // 
             // FrmAdventureSupport
@@ -323,7 +310,6 @@
         private System.Windows.Forms.Label lblPhysicalDef;
         private System.Windows.Forms.Label lblDiplomacy;
         private System.Windows.Forms.Label lblHP;
-        private System.Windows.Forms.Button btnUpdateStats;
     }
 }
 

@@ -30,7 +30,6 @@ namespace advAssistProgram
             else
             {
                 MessageBox.Show("Error in reading the file, please check if you inputte the correct directory", "Error");
-                btnUpdateStats.Enabled = false;
             }
         }
 
@@ -63,7 +62,6 @@ namespace advAssistProgram
             int check = s.UpdateData();
             if (check == 0)
             {
-                btnUpdateStats.Enabled = true;
                 for (int i = 0; i < s.getEnemiesCount(); i++)
                 {
                     cmbSelection.Items.Add(s.getName(i));
@@ -73,14 +71,13 @@ namespace advAssistProgram
             else
             {
                 MessageBox.Show("Error in reading the file, please check if you inputted the correct directory", "Error");
-                btnUpdateStats.Enabled = false;
             }
         }
 
-        private void btnUpdateStats_Click(object sender, EventArgs e)
+        private void cmbSelection_SelectedIndexChanged(object sender, EventArgs e)
         {
             bool part = false;
-            for(int i = 0; i < s.getEnemiesCount() && !part; i++)
+            for (int i = 0; i < s.getEnemiesCount() && !part; i++)
             {
                 if (cmbSelection.Text == s.getCreatureName(i))
                     part = true;
@@ -95,6 +92,7 @@ namespace advAssistProgram
             }
             else
                 MessageBox.Show("You can't get the stats of a non-existent creature", "Error");
+
         }
     }
 }

@@ -138,9 +138,9 @@ namespace advAssistProgram
                 hpDef = Convert.ToString(hp).Replace(",", ".");
                 diplDef = Convert.ToString(dipl).Replace(",", ".");
 
-                if (hpDef.IndexOf(".0") < 0)
+                if (hpDef.IndexOf(".") < 0)
                     hpDef += ".0";
-                if (diplDef.IndexOf(".0") < 0)
+                if (diplDef.IndexOf(".") < 0)
                     diplDef += ".0";
 
                 lblPersonalityAppliedHP2.Text = hpDef;
@@ -156,11 +156,11 @@ namespace advAssistProgram
                 sM = Convert.ToString(finalMagic).Replace(",", ".");
                 fD = Convert.ToString(finalDiplo).Replace(",", ".");
 
-                if (fS.IndexOf(".0") < 0)
+                if (fS.IndexOf(".") < 0)
                     fS += ".0";
-                if (sM.IndexOf(".0") < 0)
+                if (sM.IndexOf(".") < 0)
                     sM += ".0";
-                if (fD.IndexOf(".0") < 0)
+                if (fD.IndexOf(".") < 0)
                     fD += ".0";
 
 

@@ -33,6 +33,21 @@
             this.txtGoldInput = new System.Windows.Forms.TextBox();
             this.gbxGoldCalculator = new System.Windows.Forms.GroupBox();
             this.gbxStats = new System.Windows.Forms.GroupBox();
+            this.lklHelp = new System.Windows.Forms.LinkLabel();
+            this.lblDiplomacyEverything2 = new System.Windows.Forms.Label();
+            this.lblMagicEverything2 = new System.Windows.Forms.Label();
+            this.lblStabEverything2 = new System.Windows.Forms.Label();
+            this.lblDiplomacyEverything = new System.Windows.Forms.Label();
+            this.lblMagicEverything = new System.Windows.Forms.Label();
+            this.lblStabEverything = new System.Windows.Forms.Label();
+            this.lblEverythingApplied = new System.Windows.Forms.Label();
+            this.lblPersonalityAppliedHP = new System.Windows.Forms.Label();
+            this.lblPersonalityAppliedDiplomacy = new System.Windows.Forms.Label();
+            this.lblPersonalityAppliedDiplomacy2 = new System.Windows.Forms.Label();
+            this.lblPersonalityAppliedHP2 = new System.Windows.Forms.Label();
+            this.lblPersonalityApplied = new System.Windows.Forms.Label();
+            this.lblPersonality = new System.Windows.Forms.Label();
+            this.cmbPersonality = new System.Windows.Forms.ComboBox();
             this.lblPersuasionDef2 = new System.Windows.Forms.Label();
             this.lblMagicalDef2 = new System.Windows.Forms.Label();
             this.lblPhysicalDef2 = new System.Windows.Forms.Label();
@@ -48,21 +63,7 @@
             this.btnLoad = new System.Windows.Forms.Button();
             this.txtPath = new System.Windows.Forms.TextBox();
             this.lblFilePath = new System.Windows.Forms.Label();
-            this.cmbPersonality = new System.Windows.Forms.ComboBox();
-            this.lblPersonality = new System.Windows.Forms.Label();
-            this.lblPersonalityApplied = new System.Windows.Forms.Label();
-            this.lblPersonalityAppliedHP2 = new System.Windows.Forms.Label();
-            this.lblPersonalityAppliedDiplomacy2 = new System.Windows.Forms.Label();
-            this.lblPersonalityAppliedDiplomacy = new System.Windows.Forms.Label();
-            this.lblPersonalityAppliedHP = new System.Windows.Forms.Label();
-            this.lblEverythingApplied = new System.Windows.Forms.Label();
-            this.lblDiplomacyEverything2 = new System.Windows.Forms.Label();
-            this.lblMagicEverything2 = new System.Windows.Forms.Label();
-            this.lblStabEverything2 = new System.Windows.Forms.Label();
-            this.lblDiplomacyEverything = new System.Windows.Forms.Label();
-            this.lblMagicEverything = new System.Windows.Forms.Label();
-            this.lblStabEverything = new System.Windows.Forms.Label();
-            this.lklHelp = new System.Windows.Forms.LinkLabel();
+            this.lklDiscord = new System.Windows.Forms.LinkLabel();
             this.gbxGoldCalculator.SuspendLayout();
             this.gbxStats.SuspendLayout();
             this.SuspendLayout();
@@ -81,7 +82,7 @@
             // btnElaborate
             // 
             this.btnElaborate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnElaborate.Location = new System.Drawing.Point(222, 16);
+            this.btnElaborate.Location = new System.Drawing.Point(228, 16);
             this.btnElaborate.Name = "btnElaborate";
             this.btnElaborate.Size = new System.Drawing.Size(82, 39);
             this.btnElaborate.TabIndex = 2;
@@ -95,7 +96,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtGoldInput.Location = new System.Drawing.Point(9, 35);
             this.txtGoldInput.Name = "txtGoldInput";
-            this.txtGoldInput.Size = new System.Drawing.Size(207, 20);
+            this.txtGoldInput.Size = new System.Drawing.Size(213, 20);
             this.txtGoldInput.TabIndex = 1;
             // 
             // gbxGoldCalculator
@@ -105,9 +106,9 @@
             this.gbxGoldCalculator.Controls.Add(this.lblInsert);
             this.gbxGoldCalculator.Controls.Add(this.btnElaborate);
             this.gbxGoldCalculator.Controls.Add(this.txtGoldInput);
-            this.gbxGoldCalculator.Location = new System.Drawing.Point(12, 12);
+            this.gbxGoldCalculator.Location = new System.Drawing.Point(6, 12);
             this.gbxGoldCalculator.Name = "gbxGoldCalculator";
-            this.gbxGoldCalculator.Size = new System.Drawing.Size(310, 64);
+            this.gbxGoldCalculator.Size = new System.Drawing.Size(316, 64);
             this.gbxGoldCalculator.TabIndex = 0;
             this.gbxGoldCalculator.TabStop = false;
             this.gbxGoldCalculator.Text = "Gold Calculator for negaverse";
@@ -117,6 +118,7 @@
             this.gbxStats.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbxStats.Controls.Add(this.lklDiscord);
             this.gbxStats.Controls.Add(this.lklHelp);
             this.gbxStats.Controls.Add(this.lblDiplomacyEverything2);
             this.gbxStats.Controls.Add(this.lblMagicEverything2);
@@ -147,12 +149,154 @@
             this.gbxStats.Controls.Add(this.btnLoad);
             this.gbxStats.Controls.Add(this.txtPath);
             this.gbxStats.Controls.Add(this.lblFilePath);
-            this.gbxStats.Location = new System.Drawing.Point(12, 82);
+            this.gbxStats.Location = new System.Drawing.Point(6, 82);
             this.gbxStats.Name = "gbxStats";
-            this.gbxStats.Size = new System.Drawing.Size(310, 337);
+            this.gbxStats.Size = new System.Drawing.Size(316, 337);
             this.gbxStats.TabIndex = 1;
             this.gbxStats.TabStop = false;
             this.gbxStats.Text = "Custom bosses stats";
+            // 
+            // lklHelp
+            // 
+            this.lklHelp.AutoSize = true;
+            this.lklHelp.Location = new System.Drawing.Point(275, 300);
+            this.lklHelp.Name = "lklHelp";
+            this.lklHelp.Size = new System.Drawing.Size(29, 13);
+            this.lklHelp.TabIndex = 29;
+            this.lklHelp.TabStop = true;
+            this.lklHelp.Text = "Help";
+            this.lklHelp.Click += new System.EventHandler(this.lklHelp_Click);
+            // 
+            // lblDiplomacyEverything2
+            // 
+            this.lblDiplomacyEverything2.AutoSize = true;
+            this.lblDiplomacyEverything2.Location = new System.Drawing.Point(73, 317);
+            this.lblDiplomacyEverything2.Name = "lblDiplomacyEverything2";
+            this.lblDiplomacyEverything2.Size = new System.Drawing.Size(40, 13);
+            this.lblDiplomacyEverything2.TabIndex = 28;
+            this.lblDiplomacyEverything2.Text = "0000.0";
+            // 
+            // lblMagicEverything2
+            // 
+            this.lblMagicEverything2.AutoSize = true;
+            this.lblMagicEverything2.Location = new System.Drawing.Point(73, 300);
+            this.lblMagicEverything2.Name = "lblMagicEverything2";
+            this.lblMagicEverything2.Size = new System.Drawing.Size(40, 13);
+            this.lblMagicEverything2.TabIndex = 26;
+            this.lblMagicEverything2.Text = "0000.0";
+            // 
+            // lblStabEverything2
+            // 
+            this.lblStabEverything2.AutoSize = true;
+            this.lblStabEverything2.Location = new System.Drawing.Point(73, 283);
+            this.lblStabEverything2.Name = "lblStabEverything2";
+            this.lblStabEverything2.Size = new System.Drawing.Size(40, 13);
+            this.lblStabEverything2.TabIndex = 24;
+            this.lblStabEverything2.Text = "0000.0";
+            // 
+            // lblDiplomacyEverything
+            // 
+            this.lblDiplomacyEverything.AutoSize = true;
+            this.lblDiplomacyEverything.Location = new System.Drawing.Point(9, 317);
+            this.lblDiplomacyEverything.Name = "lblDiplomacyEverything";
+            this.lblDiplomacyEverything.Size = new System.Drawing.Size(56, 13);
+            this.lblDiplomacyEverything.TabIndex = 27;
+            this.lblDiplomacyEverything.Text = "Diplomacy";
+            // 
+            // lblMagicEverything
+            // 
+            this.lblMagicEverything.AutoSize = true;
+            this.lblMagicEverything.Location = new System.Drawing.Point(9, 300);
+            this.lblMagicEverything.Name = "lblMagicEverything";
+            this.lblMagicEverything.Size = new System.Drawing.Size(39, 13);
+            this.lblMagicEverything.TabIndex = 25;
+            this.lblMagicEverything.Text = "Magic:";
+            // 
+            // lblStabEverything
+            // 
+            this.lblStabEverything.AutoSize = true;
+            this.lblStabEverything.Location = new System.Drawing.Point(9, 283);
+            this.lblStabEverything.Name = "lblStabEverything";
+            this.lblStabEverything.Size = new System.Drawing.Size(32, 13);
+            this.lblStabEverything.TabIndex = 23;
+            this.lblStabEverything.Text = "Stab:";
+            // 
+            // lblEverythingApplied
+            // 
+            this.lblEverythingApplied.AutoSize = true;
+            this.lblEverythingApplied.Location = new System.Drawing.Point(9, 266);
+            this.lblEverythingApplied.Name = "lblEverythingApplied";
+            this.lblEverythingApplied.Size = new System.Drawing.Size(140, 13);
+            this.lblEverythingApplied.TabIndex = 22;
+            this.lblEverythingApplied.Text = "HP\'s with everything applied";
+            // 
+            // lblPersonalityAppliedHP
+            // 
+            this.lblPersonalityAppliedHP.AutoSize = true;
+            this.lblPersonalityAppliedHP.Location = new System.Drawing.Point(9, 220);
+            this.lblPersonalityAppliedHP.Name = "lblPersonalityAppliedHP";
+            this.lblPersonalityAppliedHP.Size = new System.Drawing.Size(25, 13);
+            this.lblPersonalityAppliedHP.TabIndex = 18;
+            this.lblPersonalityAppliedHP.Text = "HP:";
+            // 
+            // lblPersonalityAppliedDiplomacy
+            // 
+            this.lblPersonalityAppliedDiplomacy.AutoSize = true;
+            this.lblPersonalityAppliedDiplomacy.Location = new System.Drawing.Point(9, 237);
+            this.lblPersonalityAppliedDiplomacy.Name = "lblPersonalityAppliedDiplomacy";
+            this.lblPersonalityAppliedDiplomacy.Size = new System.Drawing.Size(59, 13);
+            this.lblPersonalityAppliedDiplomacy.TabIndex = 20;
+            this.lblPersonalityAppliedDiplomacy.Text = "Diplomacy:";
+            // 
+            // lblPersonalityAppliedDiplomacy2
+            // 
+            this.lblPersonalityAppliedDiplomacy2.AutoSize = true;
+            this.lblPersonalityAppliedDiplomacy2.Location = new System.Drawing.Point(73, 237);
+            this.lblPersonalityAppliedDiplomacy2.Name = "lblPersonalityAppliedDiplomacy2";
+            this.lblPersonalityAppliedDiplomacy2.Size = new System.Drawing.Size(40, 13);
+            this.lblPersonalityAppliedDiplomacy2.TabIndex = 21;
+            this.lblPersonalityAppliedDiplomacy2.Text = "0000.0";
+            // 
+            // lblPersonalityAppliedHP2
+            // 
+            this.lblPersonalityAppliedHP2.AutoSize = true;
+            this.lblPersonalityAppliedHP2.Location = new System.Drawing.Point(73, 220);
+            this.lblPersonalityAppliedHP2.Name = "lblPersonalityAppliedHP2";
+            this.lblPersonalityAppliedHP2.Size = new System.Drawing.Size(40, 13);
+            this.lblPersonalityAppliedHP2.TabIndex = 19;
+            this.lblPersonalityAppliedHP2.Text = "0000.0";
+            // 
+            // lblPersonalityApplied
+            // 
+            this.lblPersonalityApplied.AutoSize = true;
+            this.lblPersonalityApplied.Location = new System.Drawing.Point(9, 203);
+            this.lblPersonalityApplied.Name = "lblPersonalityApplied";
+            this.lblPersonalityApplied.Size = new System.Drawing.Size(105, 13);
+            this.lblPersonalityApplied.TabIndex = 15;
+            this.lblPersonalityApplied.Text = "HPs with personality:";
+            // 
+            // lblPersonality
+            // 
+            this.lblPersonality.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblPersonality.AutoSize = true;
+            this.lblPersonality.Location = new System.Drawing.Point(213, 203);
+            this.lblPersonality.Name = "lblPersonality";
+            this.lblPersonality.Size = new System.Drawing.Size(90, 13);
+            this.lblPersonality.TabIndex = 16;
+            this.lblPersonality.Text = "Personality value:";
+            // 
+            // cmbPersonality
+            // 
+            this.cmbPersonality.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbPersonality.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbPersonality.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbPersonality.FormattingEnabled = true;
+            this.cmbPersonality.Location = new System.Drawing.Point(136, 220);
+            this.cmbPersonality.Name = "cmbPersonality";
+            this.cmbPersonality.Size = new System.Drawing.Size(174, 21);
+            this.cmbPersonality.TabIndex = 17;
+            this.cmbPersonality.SelectedIndexChanged += new System.EventHandler(this.cmbPersonality_SelectedIndexChanged);
             // 
             // lblPersuasionDef2
             // 
@@ -253,7 +397,7 @@
             this.cmbSelection.FormattingEnabled = true;
             this.cmbSelection.Location = new System.Drawing.Point(98, 75);
             this.cmbSelection.Name = "cmbSelection";
-            this.cmbSelection.Size = new System.Drawing.Size(206, 21);
+            this.cmbSelection.Size = new System.Drawing.Size(212, 21);
             this.cmbSelection.TabIndex = 4;
             this.cmbSelection.SelectedIndexChanged += new System.EventHandler(this.cmbSelection_SelectedIndexChanged);
             // 
@@ -272,9 +416,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLoad.Location = new System.Drawing.Point(9, 46);
             this.btnLoad.Name = "btnLoad";
-            this.btnLoad.Size = new System.Drawing.Size(295, 23);
+            this.btnLoad.Size = new System.Drawing.Size(301, 23);
             this.btnLoad.TabIndex = 2;
-            this.btnLoad.Text = "Load the stats";
+            this.btnLoad.Text = "Load the data";
             this.btnLoad.UseVisualStyleBackColor = true;
             this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
             // 
@@ -284,7 +428,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPath.Location = new System.Drawing.Point(129, 20);
             this.txtPath.Name = "txtPath";
-            this.txtPath.Size = new System.Drawing.Size(168, 20);
+            this.txtPath.Size = new System.Drawing.Size(174, 20);
             this.txtPath.TabIndex = 1;
             this.txtPath.Text = "C:\\stats.txt";
             // 
@@ -297,147 +441,16 @@
             this.lblFilePath.TabIndex = 0;
             this.lblFilePath.Text = "Insert the stats file path";
             // 
-            // cmbPersonality
+            // lklDiscord
             // 
-            this.cmbPersonality.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmbPersonality.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cmbPersonality.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmbPersonality.FormattingEnabled = true;
-            this.cmbPersonality.Location = new System.Drawing.Point(136, 220);
-            this.cmbPersonality.Name = "cmbPersonality";
-            this.cmbPersonality.Size = new System.Drawing.Size(168, 21);
-            this.cmbPersonality.TabIndex = 17;
-            this.cmbPersonality.SelectedIndexChanged += new System.EventHandler(this.cmbPersonality_SelectedIndexChanged);
-            // 
-            // lblPersonality
-            // 
-            this.lblPersonality.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblPersonality.AutoSize = true;
-            this.lblPersonality.Location = new System.Drawing.Point(207, 203);
-            this.lblPersonality.Name = "lblPersonality";
-            this.lblPersonality.Size = new System.Drawing.Size(90, 13);
-            this.lblPersonality.TabIndex = 16;
-            this.lblPersonality.Text = "Personality value:";
-            // 
-            // lblPersonalityApplied
-            // 
-            this.lblPersonalityApplied.AutoSize = true;
-            this.lblPersonalityApplied.Location = new System.Drawing.Point(9, 203);
-            this.lblPersonalityApplied.Name = "lblPersonalityApplied";
-            this.lblPersonalityApplied.Size = new System.Drawing.Size(105, 13);
-            this.lblPersonalityApplied.TabIndex = 15;
-            this.lblPersonalityApplied.Text = "HPs with personality:";
-            // 
-            // lblPersonalityAppliedHP2
-            // 
-            this.lblPersonalityAppliedHP2.AutoSize = true;
-            this.lblPersonalityAppliedHP2.Location = new System.Drawing.Point(73, 220);
-            this.lblPersonalityAppliedHP2.Name = "lblPersonalityAppliedHP2";
-            this.lblPersonalityAppliedHP2.Size = new System.Drawing.Size(40, 13);
-            this.lblPersonalityAppliedHP2.TabIndex = 19;
-            this.lblPersonalityAppliedHP2.Text = "0000.0";
-            // 
-            // lblPersonalityAppliedDiplomacy2
-            // 
-            this.lblPersonalityAppliedDiplomacy2.AutoSize = true;
-            this.lblPersonalityAppliedDiplomacy2.Location = new System.Drawing.Point(73, 237);
-            this.lblPersonalityAppliedDiplomacy2.Name = "lblPersonalityAppliedDiplomacy2";
-            this.lblPersonalityAppliedDiplomacy2.Size = new System.Drawing.Size(40, 13);
-            this.lblPersonalityAppliedDiplomacy2.TabIndex = 21;
-            this.lblPersonalityAppliedDiplomacy2.Text = "0000.0";
-            // 
-            // lblPersonalityAppliedDiplomacy
-            // 
-            this.lblPersonalityAppliedDiplomacy.AutoSize = true;
-            this.lblPersonalityAppliedDiplomacy.Location = new System.Drawing.Point(9, 237);
-            this.lblPersonalityAppliedDiplomacy.Name = "lblPersonalityAppliedDiplomacy";
-            this.lblPersonalityAppliedDiplomacy.Size = new System.Drawing.Size(59, 13);
-            this.lblPersonalityAppliedDiplomacy.TabIndex = 20;
-            this.lblPersonalityAppliedDiplomacy.Text = "Diplomacy:";
-            // 
-            // lblPersonalityAppliedHP
-            // 
-            this.lblPersonalityAppliedHP.AutoSize = true;
-            this.lblPersonalityAppliedHP.Location = new System.Drawing.Point(9, 220);
-            this.lblPersonalityAppliedHP.Name = "lblPersonalityAppliedHP";
-            this.lblPersonalityAppliedHP.Size = new System.Drawing.Size(25, 13);
-            this.lblPersonalityAppliedHP.TabIndex = 18;
-            this.lblPersonalityAppliedHP.Text = "HP:";
-            // 
-            // lblEverythingApplied
-            // 
-            this.lblEverythingApplied.AutoSize = true;
-            this.lblEverythingApplied.Location = new System.Drawing.Point(9, 266);
-            this.lblEverythingApplied.Name = "lblEverythingApplied";
-            this.lblEverythingApplied.Size = new System.Drawing.Size(140, 13);
-            this.lblEverythingApplied.TabIndex = 22;
-            this.lblEverythingApplied.Text = "HP\'s with everything applied";
-            // 
-            // lblDiplomacyEverything2
-            // 
-            this.lblDiplomacyEverything2.AutoSize = true;
-            this.lblDiplomacyEverything2.Location = new System.Drawing.Point(73, 317);
-            this.lblDiplomacyEverything2.Name = "lblDiplomacyEverything2";
-            this.lblDiplomacyEverything2.Size = new System.Drawing.Size(40, 13);
-            this.lblDiplomacyEverything2.TabIndex = 28;
-            this.lblDiplomacyEverything2.Text = "0000.0";
-            // 
-            // lblMagicEverything2
-            // 
-            this.lblMagicEverything2.AutoSize = true;
-            this.lblMagicEverything2.Location = new System.Drawing.Point(73, 300);
-            this.lblMagicEverything2.Name = "lblMagicEverything2";
-            this.lblMagicEverything2.Size = new System.Drawing.Size(40, 13);
-            this.lblMagicEverything2.TabIndex = 26;
-            this.lblMagicEverything2.Text = "0000.0";
-            // 
-            // lblStabEverything2
-            // 
-            this.lblStabEverything2.AutoSize = true;
-            this.lblStabEverything2.Location = new System.Drawing.Point(73, 283);
-            this.lblStabEverything2.Name = "lblStabEverything2";
-            this.lblStabEverything2.Size = new System.Drawing.Size(40, 13);
-            this.lblStabEverything2.TabIndex = 24;
-            this.lblStabEverything2.Text = "0000.0";
-            // 
-            // lblDiplomacyEverything
-            // 
-            this.lblDiplomacyEverything.AutoSize = true;
-            this.lblDiplomacyEverything.Location = new System.Drawing.Point(9, 317);
-            this.lblDiplomacyEverything.Name = "lblDiplomacyEverything";
-            this.lblDiplomacyEverything.Size = new System.Drawing.Size(56, 13);
-            this.lblDiplomacyEverything.TabIndex = 27;
-            this.lblDiplomacyEverything.Text = "Diplomacy";
-            // 
-            // lblMagicEverything
-            // 
-            this.lblMagicEverything.AutoSize = true;
-            this.lblMagicEverything.Location = new System.Drawing.Point(9, 300);
-            this.lblMagicEverything.Name = "lblMagicEverything";
-            this.lblMagicEverything.Size = new System.Drawing.Size(39, 13);
-            this.lblMagicEverything.TabIndex = 25;
-            this.lblMagicEverything.Text = "Magic:";
-            // 
-            // lblStabEverything
-            // 
-            this.lblStabEverything.AutoSize = true;
-            this.lblStabEverything.Location = new System.Drawing.Point(9, 283);
-            this.lblStabEverything.Name = "lblStabEverything";
-            this.lblStabEverything.Size = new System.Drawing.Size(32, 13);
-            this.lblStabEverything.TabIndex = 23;
-            this.lblStabEverything.Text = "Stab:";
-            // 
-            // lklHelp
-            // 
-            this.lklHelp.AutoSize = true;
-            this.lklHelp.Location = new System.Drawing.Point(275, 317);
-            this.lklHelp.Name = "lklHelp";
-            this.lklHelp.Size = new System.Drawing.Size(29, 13);
-            this.lklHelp.TabIndex = 29;
-            this.lklHelp.TabStop = true;
-            this.lklHelp.Text = "Help";
-            this.lklHelp.Click += new System.EventHandler(this.lklHelp_Click);
+            this.lklDiscord.AutoSize = true;
+            this.lklDiscord.Location = new System.Drawing.Point(261, 317);
+            this.lklDiscord.Name = "lklDiscord";
+            this.lklDiscord.Size = new System.Drawing.Size(43, 13);
+            this.lklDiscord.TabIndex = 30;
+            this.lklDiscord.TabStop = true;
+            this.lklDiscord.Text = "Discord";
+            this.lklDiscord.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lklDiscord_LinkClicked);
             // 
             // FrmAdventureSupport
             // 
@@ -446,6 +459,7 @@
             this.ClientSize = new System.Drawing.Size(334, 431);
             this.Controls.Add(this.gbxStats);
             this.Controls.Add(this.gbxGoldCalculator);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(350, 470);
             this.Name = "FrmAdventureSupport";
@@ -497,6 +511,7 @@
         private System.Windows.Forms.Label lblMagicEverything;
         private System.Windows.Forms.Label lblStabEverything;
         private System.Windows.Forms.LinkLabel lklHelp;
+        private System.Windows.Forms.LinkLabel lklDiscord;
     }
 }
 

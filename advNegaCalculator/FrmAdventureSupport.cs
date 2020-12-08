@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -21,17 +22,16 @@ namespace advAssistProgram
             int check = s.UpdateData();
             if (check == 0)
             {
-                for(int i = 0; i < s.getPersonalityCount(); i++)
-                {
-                    if(s.getPersonality(i) != null)
-                        cmbPersonality.Items.Add(s.getPersonality(i));
-                }
                 for (int i = 0; i < s.getEnemiesCount(); i++)
                 {
                     cmbSelection.Items.Add(s.getName(i));
                 }
+                for (int i = 0; i < s.getPersonalityCount(); i++)
+                {
+                    if (s.getPersonality(i) != null)
+                        cmbPersonality.Items.Add(s.getPersonality(i));
+                }
                 cmbSelection.SelectedIndex = 0;
-                cmbPersonality.SelectedIndex = 0;
             }
             else
             {
@@ -97,6 +97,7 @@ namespace advAssistProgram
                 lblPhysicalDef2.Text = s.getPhysicalDefence(cmbSelection.SelectedIndex);
                 lblMagicalDef2.Text = s.getMagicalDefence(cmbSelection.SelectedIndex);
                 lblPersuasionDef2.Text = s.getPersuasionDefence(cmbSelection.SelectedIndex);
+                cmbPersonality.SelectedIndex = 0;
             }
             else
                 MessageBox.Show("You can't get the stats of a non-existent creature", "Error");
@@ -171,6 +172,12 @@ namespace advAssistProgram
         {
             MessageBox.Show("All the stats shown here are not final, they can increase or decrease according to the win rate.", "Stats");
             MessageBox.Show("Be sure to download and place the stats.txt file in C:\\ or in any different path.\nJust remember to update the one in the text box.", "Program not working");
+        }
+
+        private void lklDiscord_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ProcessStartInfo sInfo = new ProcessStartInfo("https://discord.gg/vQQHZWR6dn");
+            Process.Start(sInfo);
         }
     }
 }

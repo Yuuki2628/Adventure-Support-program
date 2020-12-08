@@ -21,16 +21,24 @@ namespace advAssistProgram
             int check = s.UpdateData();
             if (check == 0)
             {
+                for(int i = 0; i < s.getPersonalityCount(); i++)
+                {
+                    if(s.getPersonality(i) != null)
+                        cmbPersonality.Items.Add(s.getPersonality(i));
+                }
                 for (int i = 0; i < s.getEnemiesCount(); i++)
                 {
                     cmbSelection.Items.Add(s.getName(i));
                 }
                 cmbSelection.SelectedIndex = 0;
+                cmbPersonality.SelectedIndex = 0;
             }
             else
             {
-                MessageBox.Show("Error in reading the file, please check if you inputte the correct directory", "Error");
+                MessageBox.Show("Error in reading the file, please check if you input the correct directory", "Error");
             }
+            /*for(int a = 0, b = 1; a < s.getPersonalityCount(); a++)
+                MessageBox.Show(s.getTemp(a, b));*/
         }
 
         private void btnElaborate_Click(object sender, EventArgs e)
@@ -92,7 +100,77 @@ namespace advAssistProgram
             }
             else
                 MessageBox.Show("You can't get the stats of a non-existent creature", "Error");
+        }
 
+        private void cmbPersonality_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            bool part = false;
+            for (int i = 0; i < s.getPersonalityCount() && !part; i++)
+            {
+                if (cmbPersonality.Text == s.getPersonality(i))
+                    part = true;
+            }
+            if (part)
+            {
+                string hpDef = s.getDef(cmbPersonality.SelectedIndex), diplDef = s.getDDef(cmbPersonality.SelectedIndex);
+                hpDef = hpDef.Replace(".", ",");
+                diplDef = diplDef.Replace(".", ",");
+
+                double hp = Convert.ToDouble(hpDef), dipl = Convert.ToDouble(diplDef);
+
+                int hpO = Convert.ToInt32(s.getHP(cmbSelection.SelectedIndex).Remove(s.getHP(cmbSelection.SelectedIndex).IndexOf(".0")));
+                int diplO = Convert.ToInt32(s.getDiplomacy(cmbSelection.SelectedIndex).Remove(s.getDiplomacy(cmbSelection.SelectedIndex).IndexOf(".0")));
+
+                hp = hp * hpO;
+                dipl = dipl * diplO;
+
+                Math.Round(hp, 1);
+                Math.Round(dipl, 1);
+
+                double finalStab = hp, finalMagic = hp, finalDiplo = dipl;
+
+                hpDef = Convert.ToString(hp).Replace(",", ".");
+                diplDef = Convert.ToString(dipl).Replace(",", ".");
+
+                if (hpDef.IndexOf(".0") < 0)
+                    hpDef += ".0";
+                if (diplDef.IndexOf(".0") < 0)
+                    diplDef += ".0";
+
+                lblPersonalityAppliedHP2.Text = hpDef;
+                lblPersonalityAppliedDiplomacy2.Text = diplDef;
+
+                finalStab = finalStab * Convert.ToDouble(s.getPhysicalDefence(cmbSelection.SelectedIndex).Replace(".", ","));
+                finalMagic = finalMagic * Convert.ToDouble(s.getMagicalDefence(cmbSelection.SelectedIndex).Replace(".", ","));
+                finalDiplo = finalDiplo * Convert.ToDouble(s.getPersuasionDefence(cmbSelection.SelectedIndex).Replace(".", ","));
+
+                string fS, sM, fD;
+
+                fS = Convert.ToString(finalStab).Replace(",", ".");
+                sM = Convert.ToString(finalMagic).Replace(",", ".");
+                fD = Convert.ToString(finalDiplo).Replace(",", ".");
+
+                if (fS.IndexOf(".0") < 0)
+                    fS += ".0";
+                if (sM.IndexOf(".0") < 0)
+                    sM += ".0";
+                if (fD.IndexOf(".0") < 0)
+                    fD += ".0";
+
+
+                lblStabEverything2.Text = fS;
+                lblMagicEverything2.Text = sM;
+                lblDiplomacyEverything2.Text = fD;
+            }
+            else
+                MessageBox.Show("You can't get the personality of a non-existent creature", "Error");
+
+        }
+
+        private void lklHelp_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("All the stats shown here are not final, they can increase or decrease according to the win rate.", "Stats");
+            MessageBox.Show("Be sure to download and place the stats.txt file in C:\\ or in any different path.\nJust remember to update the one in the text box.", "Program not working");
         }
     }
 }

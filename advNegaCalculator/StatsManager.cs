@@ -10,12 +10,9 @@ namespace advAssistProgram
     class StatsManager
     {
         string[,] stats;
-        int enemiesNumber = 0;
+        int enemiesNumber = 0, personalityNumber = 0;
         string filePath;
-
-        //int enemiesNumber = 72;
-
-        //string filePath = @"%appdata%\Roaming\.advFile\stats.txt"; C:\Users\Robin\AppData\Roaming\.advFile\stats.txt
+        string[,] personality;
 
         public StatsManager(string Path)
         {
@@ -27,11 +24,12 @@ namespace advAssistProgram
             int i = 0, j = 0;
             if (filePath == "")
                 throw new Exception("You must put something in the file path");
-            StreamReader sr, numberFinder;
+            StreamReader sr, numberFinder, personalityFinder;
             try
             {
                 sr = new StreamReader(filePath);
                 numberFinder = new StreamReader(filePath);
+                personalityFinder = new StreamReader(filePath);
             }
             catch 
             { 
@@ -49,10 +47,37 @@ namespace advAssistProgram
 
             stats = new string[enemiesNumber, 6];
 
-            string line = sr.ReadLine();
-            while(line != null)
+            //uso personalityFinder per trovare il numero di personalità differenti che il nemico può avere
+            counter = personalityFinder.ReadLine();
+            while (counter != null)
             {
-                if(line.Contains(':') && !line.Contains("Is a boss")) //aggiungo alla matrice solo righe con contenuto utile
+                if (counter.Contains('"'))
+                    personalityNumber++;
+                counter = personalityFinder.ReadLine();
+            }
+
+            personality = new string[personalityNumber, 3];
+
+            string line = sr.ReadLine();
+
+            int c = 0;
+            //metto in personality i valory personalità inseriti all'inizio del file stats.txt
+            while (line != "")
+            {
+                personality[c, 0] = line.Substring(1, line.IndexOf('"', 2) - 1);
+
+                personality[c, 1] = line.Substring(line.IndexOf("[") + 1, line.IndexOf(",") - (line.IndexOf("[") + 1));
+                personality[c, 2] = line.Substring(line.IndexOf(",") + 2, line.IndexOf("]") - (line.IndexOf(",") + 1) - 1);
+
+                c++;
+                line = sr.ReadLine();
+            }
+
+            line = sr.ReadLine();
+
+            while (line != null)
+            {
+                if (line.Contains(':') && !line.Contains("Is a boss") && !line.Contains('"')) //aggiungo alla matrice solo righe con contenuto utile
                 {
                     stats[i, j] = line;
                     if (j < 5)
@@ -136,14 +161,38 @@ namespace advAssistProgram
             b = temp;
         }
 
+        public string getTemp(int a, int b)
+        {
+            return personality[a, b];
+        }
+
         public string getName(int a)
         {
             return stats[a, 0];
         }
 
+        public string getPersonality(int a)
+        {
+            return personality[a, 0];
+        }
+
+        public string getDef(int a)
+        {
+            return personality[a, 1];
+        }
+
+        public string getDDef(int a)
+        {
+            return personality[a, 2];
+        }
+
         public int getEnemiesCount()
         {
             return enemiesNumber;
+        }
+        public int getPersonalityCount()
+        {
+            return personalityNumber;
         }
 
         public string getCreatureName(int i)

@@ -14,6 +14,7 @@ namespace advAssistProgram
     public partial class FrmAdventureSupport : Form
     {
         StatsManager s = new StatsManager(@"C:\stats.txt");
+        int exeTimes = 0;
 
         public FrmAdventureSupport()
         {
@@ -32,6 +33,7 @@ namespace advAssistProgram
                         cmbPersonality.Items.Add(s.getPersonality(i));
                 }
                 cmbSelection.SelectedIndex = 0;
+                cmbPersonality.SelectedIndex = 0;
             }
             else
             {
@@ -97,7 +99,8 @@ namespace advAssistProgram
                 lblPhysicalDef2.Text = s.getPhysicalDefence(cmbSelection.SelectedIndex);
                 lblMagicalDef2.Text = s.getMagicalDefence(cmbSelection.SelectedIndex);
                 lblPersuasionDef2.Text = s.getPersuasionDefence(cmbSelection.SelectedIndex);
-                cmbPersonality.SelectedIndex = 0;
+                cmbPersonality.SelectedIndex += 1;
+                cmbPersonality.SelectedIndex -= 1;
             }
             else
                 MessageBox.Show("You can't get the stats of a non-existent creature", "Error");
@@ -113,6 +116,8 @@ namespace advAssistProgram
             }
             if (part)
             {
+                if (exeTimes == 0)
+                    exeTimes++;
                 string hpDef = s.getDef(cmbPersonality.SelectedIndex), diplDef = s.getDDef(cmbPersonality.SelectedIndex);
                 hpDef = hpDef.Replace(".", ",");
                 diplDef = diplDef.Replace(".", ",");
@@ -164,7 +169,8 @@ namespace advAssistProgram
                 lblDiplomacyEverything2.Text = fD;
             }
             else
-                MessageBox.Show("You can't get the personality of a non-existent creature", "Error");
+                if (exeTimes == 0)
+                    MessageBox.Show("You can't get the personality of a non-existent creature", "Error");
 
         }
 

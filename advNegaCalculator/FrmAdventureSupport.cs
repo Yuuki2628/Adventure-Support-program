@@ -18,12 +18,20 @@ namespace advAssistProgram
         {
             InitializeComponent();
 
-
-            for (int i = 0; i < s.getEnemiesCount(); i++)
+            int check = s.UpdateData();
+            if (check == 0)
             {
-                cmbSelection.Items.Add(s.getName(i));
+                for (int i = 0; i < s.getEnemiesCount(); i++)
+                {
+                    cmbSelection.Items.Add(s.getName(i));
+                }
+                cmbSelection.SelectedIndex = 0;
             }
-            cmbSelection.SelectedIndex = 0;
+            else
+            {
+                MessageBox.Show("Error in reading the file, please check if you inputte the correct directory", "Error");
+                btnUpdateStats.Enabled = false;
+            }
         }
 
         private void btnElaborate_Click(object sender, EventArgs e)
@@ -52,12 +60,21 @@ namespace advAssistProgram
             cmbSelection.Items.Clear();
 
             s = new StatsManager(txtPath.Text);
-
-            for (int i = 0; i < s.getEnemiesCount(); i++)
+            int check = s.UpdateData();
+            if (check == 0)
             {
-                cmbSelection.Items.Add(s.getName(i));
+                btnUpdateStats.Enabled = true;
+                for (int i = 0; i < s.getEnemiesCount(); i++)
+                {
+                    cmbSelection.Items.Add(s.getName(i));
+                }
+                cmbSelection.SelectedIndex = 0;
             }
-            cmbSelection.SelectedIndex = 0;
+            else
+            {
+                MessageBox.Show("Error in reading the file, please check if you inputted the correct directory", "Error");
+                btnUpdateStats.Enabled = false;
+            }
         }
 
         private void btnUpdateStats_Click(object sender, EventArgs e)

@@ -11,6 +11,7 @@ namespace advAssistProgram
     {
         string[,] stats;
         int enemiesNumber = 0;
+        string filePath;
 
         //int enemiesNumber = 72;
 
@@ -18,11 +19,24 @@ namespace advAssistProgram
 
         public StatsManager(string Path)
         {
-            string filePath = @Path;
+            filePath = @Path;
+        }
+
+        public int UpdateData()
+        { 
             int i = 0, j = 0;
             if (filePath == "")
                 throw new Exception("You must put something in the file path");
-            StreamReader sr = new StreamReader(Path), numberFinder = new StreamReader(Path); 
+            StreamReader sr, numberFinder;
+            try
+            {
+                sr = new StreamReader(filePath);
+                numberFinder = new StreamReader(filePath);
+            }
+            catch 
+            { 
+                return -1;
+            }
 
             //uso numberFinder per ottenere il numero di creature di cui conosco le statistiche
             string counter = numberFinder.ReadLine();
@@ -112,6 +126,7 @@ namespace advAssistProgram
                     p++;
                 }
             }
+            return 0;
         }
 
         public void Switch(ref string a, ref string b)

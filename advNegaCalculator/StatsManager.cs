@@ -110,7 +110,7 @@ namespace advAssistProgram
             }
 
             bool swap = true;
-            while(swap)
+            while (swap) //it's ordering all the enemies names alphabetically
             {
                 swap = false;
                 int sum1, sum2;
@@ -125,7 +125,7 @@ namespace advAssistProgram
                             Switch(ref stats[p, m], ref stats[p + 1, m]);
                         swap = true;
                     }
-                    if(sum2 == sum1)
+                    if (sum2 == sum1)
                     {
                         sum1 = stats[p, 1][0];
                         sum2 = stats[p + 1, 1][0];
@@ -143,6 +143,49 @@ namespace advAssistProgram
                             {
                                 for (int m = 0; m < 6; m++)
                                     Switch(ref stats[p, m], ref stats[p + 1, m]);
+                                swap = true;
+                            }
+                        }
+
+                    }
+                    p++;
+                }
+            }
+
+            swap = true;
+            while (swap) // it's ordering all the personalities's names alphabetically
+            {
+                swap = false;
+                int sum1, sum2;
+                int p = 0;
+                while (p + 1 < personalityNumber)
+                {
+                    sum1 = personality[p, 0][0];
+                    sum2 = personality[p + 1, 0][0];
+                    if (sum2 < sum1) // orders the stats using only the first letter
+                    {
+                        for (int m = 0; m < 3; m++)
+                            Switch(ref personality[p, m], ref personality[p + 1, m]);
+                        swap = true;
+                    }
+                    if (sum2 == sum1)
+                    {
+                        sum1 = personality[p, 1][0];
+                        sum2 = personality[p + 1, 1][0];
+                        if (sum2 < sum1) // orders the stats using only the second letter
+                        {
+                            for (int m = 0; m < 3; m++)
+                                Switch(ref personality[p, m], ref personality[p + 1, m]);
+                            swap = true;
+                        }
+                        if (sum2 == sum1)
+                        {
+                            sum1 = personality[p, 2][0];
+                            sum2 = personality[p + 1, 2][0];
+                            if (sum2 < sum1) // orders the stats using only the third letter
+                            {
+                                for (int m = 0; m < 3; m++)
+                                    Switch(ref personality[p, m], ref personality[p + 1, m]);
                                 swap = true;
                             }
                         }

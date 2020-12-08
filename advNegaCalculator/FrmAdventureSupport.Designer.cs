@@ -128,6 +128,8 @@
             // 
             // btnUpdateStats
             // 
+            this.btnUpdateStats.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnUpdateStats.Location = new System.Drawing.Point(172, 107);
             this.btnUpdateStats.Name = "btnUpdateStats";
             this.btnUpdateStats.Size = new System.Drawing.Size(132, 81);
@@ -230,6 +232,8 @@
             // 
             this.cmbSelection.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbSelection.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbSelection.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbSelection.FormattingEnabled = true;
             this.cmbSelection.Location = new System.Drawing.Point(98, 75);
             this.cmbSelection.Name = "cmbSelection";

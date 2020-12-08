@@ -146,6 +146,11 @@ namespace advAssistProgram
             return enemiesNumber;
         }
 
+        public string getCreatureName(int i)
+        {
+            return stats[i, 0];
+        }
+
         public string getHP(int i)
         {
             return stats[i, 1];

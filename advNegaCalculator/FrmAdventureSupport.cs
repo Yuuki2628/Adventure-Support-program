@@ -79,7 +79,13 @@ namespace advAssistProgram
 
         private void btnUpdateStats_Click(object sender, EventArgs e)
         {
-            if (cmbSelection.Text != "")
+            bool part = false;
+            for(int i = 0; i < s.getEnemiesCount() && !part; i++)
+            {
+                if (cmbSelection.Text == s.getCreatureName(i))
+                    part = true;
+            }
+            if (part)
             {
                 lblHP2.Text = s.getHP(cmbSelection.SelectedIndex);
                 lblDiplomacy2.Text = s.getDiplomacy(cmbSelection.SelectedIndex);

@@ -5,8 +5,8 @@ using System.Runtime.InteropServices;
 // Le informazioni generali relative a un assembly sono controllate dal seguente 
 // set di attributi. Modificare i valori di questi attributi per modificare le informazioni
 // associate a un assembly.
-[assembly: AssemblyTitle("advAssistProgram")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Adventure support program by Yuuki")]
+[assembly: AssemblyDescription("Use this with the adventure game on the discord bot")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("advAssistProgram")]

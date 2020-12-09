@@ -7,7 +7,7 @@
     <ProjectGuid>{0B31F79B-6876-412C-B70E-86B486455A06}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>advNegaCalculator</RootNamespace>
-    <AssemblyName>advNegaCalculator</AssemblyName>
+    <AssemblyName>Adventure support program by Yuuki</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

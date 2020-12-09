@@ -68,6 +68,7 @@ namespace advAssistProgram
         private void btnLoad_Click(object sender, EventArgs e)
         {
             cmbSelection.Items.Clear();
+            cmbPersonality.Items.Clear();
 
             s = new StatsManager(txtPath.Text);
             int check = s.UpdateData();
@@ -87,7 +88,7 @@ namespace advAssistProgram
             }
             else
             {
-                MessageBox.Show("Error in reading the file, please check if you inputted the correct directory", "Error");
+                MessageBox.Show("Error in reading the file, please check if you input the correct directory", "Error");
             }
         }
 

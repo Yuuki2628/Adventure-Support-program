@@ -13,13 +13,14 @@ namespace advAssistProgram
 {
     public partial class FrmAdventureSupport : Form
     {
-        StatsManager s = new StatsManager(@"C:\stats.txt");
+        StatsManager s;
         int exeTimes = 0;
 
         public FrmAdventureSupport()
         {
             InitializeComponent();
 
+            s = new StatsManager(txtPath.Text);
             int check = s.UpdateData();
             if (check == 0)
             {
@@ -76,7 +77,13 @@ namespace advAssistProgram
                 {
                     cmbSelection.Items.Add(s.getName(i));
                 }
+                for (int i = 0; i < s.getPersonalityCount(); i++)
+                {
+                    if (s.getPersonality(i) != null)
+                        cmbPersonality.Items.Add(s.getPersonality(i));
+                }
                 cmbSelection.SelectedIndex = 0;
+                cmbPersonality.SelectedIndex = 0;
             }
             else
             {

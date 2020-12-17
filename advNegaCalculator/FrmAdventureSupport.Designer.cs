@@ -437,7 +437,7 @@
             this.MaximizeBox = false;
             this.Name = "FrmAdventureSupport";
             this.ShowIcon = false;
-            this.Text = "Adventure assist program by Yuuki";
+            this.Text = "Adventure assist program";
             this.TopMost = true;
             this.gbxGoldCalculator.ResumeLayout(false);
             this.gbxGoldCalculator.PerformLayout();

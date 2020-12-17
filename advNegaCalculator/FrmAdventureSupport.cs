@@ -20,28 +20,19 @@ namespace advAssistProgram
         {
             InitializeComponent();
 
-            s = new StatsManager(txtPath.Text);
-            int check = s.UpdateData();
-            if (check == 0)
+            s = new StatsManager();
+            s.UpdateData();
+            for (int i = 0; i < s.getEnemiesCount(); i++)
             {
-                for (int i = 0; i < s.getEnemiesCount(); i++)
-                {
-                    cmbSelection.Items.Add(s.getName(i));
-                }
-                for (int i = 0; i < s.getPersonalityCount(); i++)
-                {
-                    if (s.getPersonality(i) != null)
-                        cmbPersonality.Items.Add(s.getPersonality(i));
-                }
-                cmbSelection.SelectedIndex = 0;
-                cmbPersonality.SelectedIndex = 0;
+                cmbSelection.Items.Add(s.getName(i));
             }
-            else
+            for (int i = 0; i < s.getPersonalityCount(); i++)
             {
-                MessageBox.Show("Error in reading the file, please check if you input the correct directory", "Error");
+                if (s.getPersonality(i) != null)
+                    cmbPersonality.Items.Add(s.getPersonality(i));
             }
-            /*for(int a = 0, b = 1; a < s.getPersonalityCount(); a++)
-                MessageBox.Show(s.getTemp(a, b));*/
+            cmbSelection.SelectedIndex = 0;
+            cmbPersonality.SelectedIndex = 0;
         }
 
         private void btnElaborate_Click(object sender, EventArgs e)
@@ -70,26 +61,17 @@ namespace advAssistProgram
             cmbSelection.Items.Clear();
             cmbPersonality.Items.Clear();
 
-            s = new StatsManager(txtPath.Text);
-            int check = s.UpdateData();
-            if (check == 0)
+            s = new StatsManager();
+            for (int i = 0; i < s.getEnemiesCount(); i++)
             {
-                for (int i = 0; i < s.getEnemiesCount(); i++)
-                {
-                    cmbSelection.Items.Add(s.getName(i));
-                }
-                for (int i = 0; i < s.getPersonalityCount(); i++)
-                {
-                    if (s.getPersonality(i) != null)
-                        cmbPersonality.Items.Add(s.getPersonality(i));
-                }
-                cmbSelection.SelectedIndex = 0;
-                cmbPersonality.SelectedIndex = 0;
+                cmbSelection.Items.Add(s.getName(i));
             }
-            else
+            for (int i = 0; i < s.getPersonalityCount(); i++)
             {
-                MessageBox.Show("Error in reading the file, please check if you input the correct directory", "Error");
+                if (s.getPersonality(i) != null)
+                    cmbPersonality.Items.Add(s.getPersonality(i));
             }
+            cmbSelection.SelectedIndex = 0;
         }
 
         private void cmbSelection_SelectedIndexChanged(object sender, EventArgs e)
@@ -107,8 +89,11 @@ namespace advAssistProgram
                 lblPhysicalDef2.Text = s.getPhysicalDefence(cmbSelection.SelectedIndex);
                 lblMagicalDef2.Text = s.getMagicalDefence(cmbSelection.SelectedIndex);
                 lblPersuasionDef2.Text = s.getPersuasionDefence(cmbSelection.SelectedIndex);
-                cmbPersonality.SelectedIndex += 1;//updates all the stats that are not updated here triggering the below cycle
-                cmbPersonality.SelectedIndex -= 1;
+                if (exeTimes != 0)
+                {
+                    cmbPersonality.SelectedIndex += 1;//updates all the stats that are not updated here triggering the below cycle
+                    cmbPersonality.SelectedIndex -= 1;
+                }
             }
             else
                 MessageBox.Show("You can't get the stats of a non-existent creature", "Error");
@@ -132,8 +117,8 @@ namespace advAssistProgram
 
                 double hp = Convert.ToDouble(hpDef), dipl = Convert.ToDouble(diplDef);
                 // conversion of the hps to int to be able to use them to calculate the final hps
-                int hpO = Convert.ToInt32(s.getHP(cmbSelection.SelectedIndex).Remove(s.getHP(cmbSelection.SelectedIndex).IndexOf(".0")));
-                int diplO = Convert.ToInt32(s.getDiplomacy(cmbSelection.SelectedIndex).Remove(s.getDiplomacy(cmbSelection.SelectedIndex).IndexOf(".0")));
+                int hpO = Convert.ToInt32(s.getHP(cmbSelection.SelectedIndex).Remove(s.getHP(cmbSelection.SelectedIndex).IndexOf(".")));
+                int diplO = Convert.ToInt32(s.getDiplomacy(cmbSelection.SelectedIndex).Remove(s.getDiplomacy(cmbSelection.SelectedIndex).IndexOf(".")));
 
                 hp = hp * hpO;
                 dipl = dipl * diplO;
@@ -185,7 +170,6 @@ namespace advAssistProgram
         private void lklHelp_Click(object sender, EventArgs e)
         {
             MessageBox.Show("All the stats shown here are not final, they can increase or decrease according to the win rate.", "Stats");
-            MessageBox.Show("Be sure to download and place the stats.txt file in C:\\ or in any different path.\nJust remember to update the one in the text box.", "Program not working");
         }
 
         private void lklDiscord_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

@@ -61,6 +61,7 @@
             this.lblHP = new System.Windows.Forms.Label();
             this.cmbSelection = new System.Windows.Forms.ComboBox();
             this.lblSelect = new System.Windows.Forms.Label();
+            this.lblMadeWithLove = new System.Windows.Forms.Label();
             this.gbxGoldCalculator.SuspendLayout();
             this.gbxStats.SuspendLayout();
             this.SuspendLayout();
@@ -145,7 +146,7 @@
             this.gbxStats.Controls.Add(this.lblSelect);
             this.gbxStats.Location = new System.Drawing.Point(6, 82);
             this.gbxStats.Name = "gbxStats";
-            this.gbxStats.Size = new System.Drawing.Size(316, 287);
+            this.gbxStats.Size = new System.Drawing.Size(316, 281);
             this.gbxStats.TabIndex = 1;
             this.gbxStats.TabStop = false;
             this.gbxStats.Text = "Custom bosses stats";
@@ -415,11 +416,21 @@
             this.lblSelect.TabIndex = 3;
             this.lblSelect.Text = "Select an enemy";
             // 
+            // lblMadeWithLove
+            // 
+            this.lblMadeWithLove.AutoSize = true;
+            this.lblMadeWithLove.Location = new System.Drawing.Point(201, 367);
+            this.lblMadeWithLove.Name = "lblMadeWithLove";
+            this.lblMadeWithLove.Size = new System.Drawing.Size(123, 13);
+            this.lblMadeWithLove.TabIndex = 2;
+            this.lblMadeWithLove.Text = "Made with love by Yuuki";
+            // 
             // FrmAdventureSupport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(334, 381);
+            this.ClientSize = new System.Drawing.Size(334, 386);
+            this.Controls.Add(this.lblMadeWithLove);
             this.Controls.Add(this.gbxStats);
             this.Controls.Add(this.gbxGoldCalculator);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -433,6 +444,7 @@
             this.gbxStats.ResumeLayout(false);
             this.gbxStats.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -471,6 +483,7 @@
         private System.Windows.Forms.Label lblStabEverything;
         private System.Windows.Forms.LinkLabel lklHelp;
         private System.Windows.Forms.LinkLabel lklDiscord;
+        private System.Windows.Forms.Label lblMadeWithLove;
     }
 }
 

@@ -109,8 +109,11 @@ namespace advAssistProgram
             }
             if (part)
             {
+                int multiplier = 1; //multiplies every stat, if trascended is selected it'll multiply every hp stat by 4
                 if (exeTimes == 0) 
                     exeTimes++;
+                if (cbxTrascended.Checked == true)
+                    multiplier = 4;
                 string hpDef = s.getDef(cmbPersonality.SelectedIndex), diplDef = s.getDDef(cmbPersonality.SelectedIndex);
                 hpDef = hpDef.Replace(".", ",");
                 diplDef = diplDef.Replace(".", ",");
@@ -120,8 +123,8 @@ namespace advAssistProgram
                 int hpO = Convert.ToInt32(s.getHP(cmbSelection.SelectedIndex).Remove(s.getHP(cmbSelection.SelectedIndex).IndexOf(".")));
                 int diplO = Convert.ToInt32(s.getDiplomacy(cmbSelection.SelectedIndex).Remove(s.getDiplomacy(cmbSelection.SelectedIndex).IndexOf(".")));
 
-                hp = hp * hpO;
-                dipl = dipl * diplO;
+                hp = hp * hpO * multiplier;
+                dipl = dipl * diplO * multiplier;
 
                 Math.Round(hp, 1);
                 Math.Round(dipl, 1); //round them to 1 decimal 
@@ -136,8 +139,6 @@ namespace advAssistProgram
                 if (diplDef.IndexOf(".") < 0)
                     diplDef += ".0";
 
-                lblPersonalityAppliedHP2.Text = hpDef;
-                lblPersonalityAppliedDiplomacy2.Text = diplDef;
                 //turns the various weaknesses into doubles to use them
                 finalStab = finalStab * Convert.ToDouble(s.getPhysicalDefence(cmbSelection.SelectedIndex).Replace(".", ","));
                 finalMagic = finalMagic * Convert.ToDouble(s.getMagicalDefence(cmbSelection.SelectedIndex).Replace(".", ","));
@@ -176,6 +177,12 @@ namespace advAssistProgram
         {
             ProcessStartInfo sInfo = new ProcessStartInfo("https://discord.gg/vQQHZWR6dn");
             Process.Start(sInfo);
+        }
+
+        private void cbxTrascended_CheckedChanged(object sender, EventArgs e)
+        {
+            cmbSelection.SelectedIndex += 1;
+            cmbSelection.SelectedIndex -= 1;
         }
     }
 }

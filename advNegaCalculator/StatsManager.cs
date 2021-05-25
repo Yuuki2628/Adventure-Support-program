@@ -14,11 +14,7 @@ namespace advAssistProgram
         int enemiesNumber = 206, personalityNumber = 35;
         string filePath;
         string[,] personality;
-
-        public StatsManager(string Path)
-        {
-            filePath = @Path;
-        }
+        const string ADDITIONAL_STATS_PATH = @"";
 
         public void UpdateData()
         {
@@ -115,11 +111,6 @@ namespace advAssistProgram
             a = b;
             b = temp;
         }
-
-        /*public string getTemp(int a, int b)
-        {
-            return personality[a, b];
-        }*/
 
         public string getName(int a) //return an enemy's name
         {

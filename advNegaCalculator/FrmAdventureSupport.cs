@@ -56,24 +56,6 @@ namespace advAssistProgram
             }
         }
 
-        private void btnLoad_Click(object sender, EventArgs e)
-        {
-            cmbSelection.Items.Clear();
-            cmbPersonality.Items.Clear();
-
-            s = new StatsManager();
-            for (int i = 0; i < s.getEnemiesCount(); i++)
-            {
-                cmbSelection.Items.Add(s.getName(i));
-            }
-            for (int i = 0; i < s.getPersonalityCount(); i++)
-            {
-                if (s.getPersonality(i) != null)
-                    cmbPersonality.Items.Add(s.getPersonality(i));
-            }
-            cmbSelection.SelectedIndex = 0;
-        }
-
         private void cmbSelection_SelectedIndexChanged(object sender, EventArgs e)
         {
             bool part = false;
@@ -110,11 +92,12 @@ namespace advAssistProgram
             if (part)
             {
                 int multiplier = 1; //multiplies every stat, if trascended is selected it'll multiply every hp stat by 4
-                if (exeTimes == 0) 
+                if (exeTimes == 0)
                     exeTimes++;
                 if (cbxTrascended.Checked == true)
                     multiplier = 4;
                 string hpDef = s.getDef(cmbPersonality.SelectedIndex), diplDef = s.getDDef(cmbPersonality.SelectedIndex);
+                lblPersonalityValue2.Text = s.getDef(cmbPersonality.SelectedIndex) + " / " + s.getDDef(cmbPersonality.SelectedIndex);
                 hpDef = hpDef.Replace(".", ",");
                 diplDef = diplDef.Replace(".", ",");
 
@@ -164,7 +147,7 @@ namespace advAssistProgram
             }
             else
                 if (exeTimes == 0) //if it's the first cycle it'll skip the error message
-                    MessageBox.Show("You can't get the personality of a non-existent creature", "Error");
+                MessageBox.Show("You can't get the personality of a non-existent creature", "Error");
 
         }
 

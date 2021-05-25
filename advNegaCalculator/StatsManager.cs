@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,7 +11,7 @@ namespace advAssistProgram
     class StatsManager
     {
         string[,] stats;
-        int enemiesNumber = 278, personalityNumber = 35;
+        int enemiesNumber = 206, personalityNumber = 35;
         string filePath;
         string[,] personality;
 
@@ -20,7 +21,7 @@ namespace advAssistProgram
         }
 
         public void UpdateData()
-        { 
+        {
             bool swap = true;
             while (swap) //it's ordering all the enemies names alphabetically
             {
@@ -142,11 +143,11 @@ namespace advAssistProgram
 
         public int getEnemiesCount() //returns how many enemies are there
         {
-            return 278;
+            return enemiesNumber;
         }
         public int getPersonalityCount() //return how many personalities are there
         {
-            return 35;
+            return personalityNumber;
         }
 
         public string getCreatureName(int i) //return an enemy's name
@@ -389,81 +390,6 @@ namespace advAssistProgram
                 {"Celestial Wyrm","1103.5","1237.0","1.8","1.4","1.0"},
                 {"Golden Guardian Wyrm","1283.5","1629.0","1.8","1.2","1.0"},
                 {"Quintessence Dragon","1353.0","1663.0","1.24","2.11","1.0"},
-
-                /* Regular enemies above, custom ones below */
-
-                {"Mini Pekka","750.0","945.0","1.5","0.9","1.0"},
-                {"Goblin Giant","950.0","1200.0","1.1","1.1","1.0"},
-                {"Knight","450.0","300.0","1.6","0.8","1.0"},
-                {"Archers","373.0","399.0","1.0","1.2","1.0"},
-                {"P.E.K.K.A.","1350.0","1700.0","2.0","0.6","1.0"},
-                {"Goblins","250.0","350.0","0.8","1.0","1.0"},
-                {"Giant","750.0","800.0","1.2","0.8","1.0"},
-                {"Minions","373.0","423.0","2.0","0.8","1.0"},
-                {"Balloon","800.0","1500.0","1.4","1.0","1.0"},
-                {"Witch","942.0","987.0","1.2","1.2","1.0"},
-                {"Valkyrie","550.0","400.0","1.2","0.9","1.0"},
-                {"Skeleton Army","350.0","450.0","4.0","1.0","1.0"},
-                {"Barbarians","475.0","630.0","1.2","1.0","1.0"},
-                {"Golem","2400.0","3000.0","0.7","1.7","1.0"},
-                {"Skeletons","100.0","130.0","1.3","0.7","1.0"},
-                {"Bomber","240.0","300.0","1.0","0.9","1.0"},
-                {"Musketeer","350.0","300.0","0.9","0.9","1.0"},
-                {"Baby Dragon","500.0","475.0","1.3","1.4","1.0"},
-                {"Prince","550.0","475.0","1.4","1.0","1.0"},
-                {"Wizard","400.0","600.0","0.8","1.3","1.0"},
-                {"Spear Goblins","200.0","500.0","1.0","0.9","1.0"},
-                {"Giant Skeleton","750.0","900.0","1.7","1.0","1.0"},
-                {"Hog Rider","440.0","515.0","0.8","1.0","1.0"},
-                {"Minion Horde","555.0","623.0","1.8","0.7","1.0"},
-                {"Ice Wizard","313.0","420.0","1.5","1.0","1.0"},
-                {"Royal Giant","740.0","670.0","1.1","1.3","1.0"},
-                {"Guards","333.0","500.0","1.3","0.9","1.0"},
-                {"Princess","400.0","350.0","0.9","1.2","1.0"},
-                {"Dark Prince","525.0","647.0","1.5","1.5","1.0"},
-                {"Three Musketeers","1750.0","1500.0","1.0","0.8","1.0"},
-                {"Lava Hound","1400.0","1350.0","4.0","0.8","1.0"},
-                {"D83 Dragon","3333.0","3333.0","1.33","1.33","1.0"},
-                {"Justin","1000.0","300.0","1.0","0.5","1.0"},
-                {"Ice Spirit","250.0","300.0","1.3","0.9","1.0"},
-                {"Fire Spirits","372.0","534.0","1.3","0.9","1.0"},
-                {"Miner","673.0","472.0","1.0","1.0","1.0"},
-                {"Sparky","1773.0","2465.0","1.2","1.1","1.0"},
-                {"Bowler","600.0","895.0","1.2","0.9","1.0"},
-                {"Lumberjack","500.0","1100.0","1.8","2.1","1.0"},
-                {"Battle Ram","1150.0","1200.0","0.6","1.0","1.0"},
-                {"Inferno Dragon","2350.0","3721.0","1.9","0.8","1.0"},
-                {"Ice Golem","350.0","500.0","0.8","0.9","1.0"},
-                {"Mega Minion","424.0","424.0","1.5","0.8","1.0"},
-                {"Dart Goblin","273.0","325.0","0.8","0.9","1.0"},
-                {"Goblin Gang","1150.0","1750.0","1.4","0.6","1.0"},
-                {"Electro Wizard","732.0","976.0","1.2","1.0","1.0"},
-                {"Elite Barbarians","5225.0","4267.0","0.5","0.7","1.0"},
-                {"Hunter","673.0","772.0","1.0","1.0","1.0"},
-                {"Executioner","1150.0","1300.0","0.7","1.9","1.0"},
-                {"Bandit","575.0","723.0","0.7","1.2","1.0"},
-                {"Royal Recruits","3333.0","6666.0","1.7","0.7","1.0"},
-                {"Night Witch","724.0","867.0","1.2","1.2","1.0"},
-                {"Mark - Dragons Eight Leader","2750.0","4200.0","0.7","0.7","1.0"},
-                {"Zekrom","1750.0","1296.0","1.85","1.9","1.0"},
-                {"Yuuki","2500.0","3000.0","1.3","0.8","0.9"},
-                {"Sai","1975.0","3500.0","0.8","1.4","1.0"},
-                {"Dialga","2496.0","3107.0","1.2","1.7","1.0"},
-                {"Prince Vegita","5000.0","2512.0","2.0","2.0","1.0"},
-                {"Sad Cloud","5000.0","1600.0","1.7","2.2","1.0"},
-                {"Uchiha Madara","1732.0","3798.0","0.65","0.5","1.0"},
-                {"Joker","1394.0","4000.0","0.7","0.5","1.0"},
-                {"Ryuga - Dragon emperor","5069.0","1669.0","0.69","0.69","1.0"},
-                {"Kaido","4200.0","2700.0","1.2","0.8","1.0"},
-                {"Arjuna","2500.0","2900.0","0.7","1.3","1.0"},
-                {"Lancer of Red","3200.0","1632.0","0.4","0.7","1.0"},
-                {"Ren Amamiya(Joker)","2398.0","3178.0","0.5","1.7","1.0"},
-                {"Beru","1800.0","2100.0","1.3","2.4","1.0"},
-                {"Marco","2600.0","2200.0","1.9","0.6","1.0"},
-                {"Akuma","1800.0","1200.0","1.6","0.8","1.0"},
-                {"Luffy","3900.0","2800.0","2.8","1.8","1.0"},
-                {"Rui","2700.0","2200.0","0.8","1.6","1.0"},
-                {"Okok","1669.0","4069.0","0.5","6.9","1.0"}
             };
 
             personality = new string[,]
@@ -504,6 +430,48 @@ namespace advAssistProgram
                 {"weak","0.5","1"},
                 {"weary","0.6","0.9"}
             };
+            Request();
+        }
+        private async void Request()
+        {
+            string[] array;
+            string risposta;
+            using (HttpClient client = new HttpClient())
+            {
+                string url = @"https://raw.githubusercontent.com/Yuuki2628/Adventure-Support-program/master/advNegaCalculator/additionalStats.txt";
+
+                risposta = await client.GetStringAsync(url);
+            }
+            int count = risposta.Count(f => f == '}');
+            array = new string[count];
+            string temp = risposta;
+            for (int i = 0; i < count; i++)
+            {
+                array[i] = temp.Substring(1, temp.IndexOf('-') - 1);
+                array[i].Replace("\n", "");
+                array[i].Replace("-", "");
+            }
+
+            for (int i = 0; i < count; i++)
+            {
+                Append();
+                string value = array[i];
+                for (int p = 0; p < 6; p++)
+                {
+                    stats[enemiesNumber, p] = value.Substring(0, value.IndexOf(',') - 1);
+                    value.Remove(0, value.IndexOf(','));
+                }
+            }
+        }
+
+        private void Append()
+        {
+            enemiesNumber++;
+            string[,] array = new string[enemiesNumber, 6];
+            for (int i = 0; i < enemiesNumber; i++)
+                for (int p = 0; p < 6; p++)
+                    array[i, p] = stats[i, p];
+            stats = array;
         }
     }
 }

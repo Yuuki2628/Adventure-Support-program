@@ -33,6 +33,8 @@
             this.txtGoldInput = new System.Windows.Forms.TextBox();
             this.gbxGoldCalculator = new System.Windows.Forms.GroupBox();
             this.gbxStats = new System.Windows.Forms.GroupBox();
+            this.cbxTrascended = new System.Windows.Forms.CheckBox();
+            this.lblMadeWithLove = new System.Windows.Forms.Label();
             this.lklDiscord = new System.Windows.Forms.LinkLabel();
             this.lklHelp = new System.Windows.Forms.LinkLabel();
             this.lblDiplomacyEverything2 = new System.Windows.Forms.Label();
@@ -56,8 +58,8 @@
             this.lblHP = new System.Windows.Forms.Label();
             this.cmbSelection = new System.Windows.Forms.ComboBox();
             this.lblSelect = new System.Windows.Forms.Label();
-            this.lblMadeWithLove = new System.Windows.Forms.Label();
-            this.cbxTrascended = new System.Windows.Forms.CheckBox();
+            this.lblPersonalityValue = new System.Windows.Forms.Label();
+            this.lblPersonalityValue2 = new System.Windows.Forms.Label();
             this.gbxGoldCalculator.SuspendLayout();
             this.gbxStats.SuspendLayout();
             this.SuspendLayout();
@@ -112,6 +114,8 @@
             this.gbxStats.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbxStats.Controls.Add(this.lblPersonalityValue2);
+            this.gbxStats.Controls.Add(this.lblPersonalityValue);
             this.gbxStats.Controls.Add(this.cbxTrascended);
             this.gbxStats.Controls.Add(this.lblMadeWithLove);
             this.gbxStats.Controls.Add(this.lklDiscord);
@@ -143,6 +147,26 @@
             this.gbxStats.TabIndex = 1;
             this.gbxStats.TabStop = false;
             this.gbxStats.Text = "Enemy stats";
+            // 
+            // cbxTrascended
+            // 
+            this.cbxTrascended.AutoSize = true;
+            this.cbxTrascended.Location = new System.Drawing.Point(234, 74);
+            this.cbxTrascended.Name = "cbxTrascended";
+            this.cbxTrascended.Size = new System.Drawing.Size(83, 17);
+            this.cbxTrascended.TabIndex = 24;
+            this.cbxTrascended.Text = "Trascended";
+            this.cbxTrascended.UseVisualStyleBackColor = true;
+            this.cbxTrascended.CheckedChanged += new System.EventHandler(this.cbxTrascended_CheckedChanged);
+            // 
+            // lblMadeWithLove
+            // 
+            this.lblMadeWithLove.AutoSize = true;
+            this.lblMadeWithLove.Location = new System.Drawing.Point(187, 224);
+            this.lblMadeWithLove.Name = "lblMadeWithLove";
+            this.lblMadeWithLove.Size = new System.Drawing.Size(123, 13);
+            this.lblMadeWithLove.TabIndex = 23;
+            this.lblMadeWithLove.Text = "Made with love by Yuuki";
             // 
             // lklDiscord
             // 
@@ -372,25 +396,23 @@
             this.lblSelect.TabIndex = 2;
             this.lblSelect.Text = "Select an enemy:";
             // 
-            // lblMadeWithLove
+            // lblPersonalityValue
             // 
-            this.lblMadeWithLove.AutoSize = true;
-            this.lblMadeWithLove.Location = new System.Drawing.Point(187, 224);
-            this.lblMadeWithLove.Name = "lblMadeWithLove";
-            this.lblMadeWithLove.Size = new System.Drawing.Size(123, 13);
-            this.lblMadeWithLove.TabIndex = 23;
-            this.lblMadeWithLove.Text = "Made with love by Yuuki";
+            this.lblPersonalityValue.AutoSize = true;
+            this.lblPersonalityValue.Location = new System.Drawing.Point(227, 126);
+            this.lblPersonalityValue.Name = "lblPersonalityValue";
+            this.lblPersonalityValue.Size = new System.Drawing.Size(90, 13);
+            this.lblPersonalityValue.TabIndex = 25;
+            this.lblPersonalityValue.Text = "Personality value:";
             // 
-            // cbxTrascended
+            // lblPersonalityValue2
             // 
-            this.cbxTrascended.AutoSize = true;
-            this.cbxTrascended.Location = new System.Drawing.Point(234, 74);
-            this.cbxTrascended.Name = "cbxTrascended";
-            this.cbxTrascended.Size = new System.Drawing.Size(83, 17);
-            this.cbxTrascended.TabIndex = 24;
-            this.cbxTrascended.Text = "Trascended";
-            this.cbxTrascended.UseVisualStyleBackColor = true;
-            this.cbxTrascended.CheckedChanged += new System.EventHandler(this.cbxTrascended_CheckedChanged);
+            this.lblPersonalityValue2.AutoSize = true;
+            this.lblPersonalityValue2.Location = new System.Drawing.Point(227, 143);
+            this.lblPersonalityValue2.Name = "lblPersonalityValue2";
+            this.lblPersonalityValue2.Size = new System.Drawing.Size(72, 13);
+            this.lblPersonalityValue2.TabIndex = 26;
+            this.lblPersonalityValue2.Text = "00.00 / 00.00";
             // 
             // FrmAdventureSupport
             // 
@@ -403,7 +425,7 @@
             this.MaximizeBox = false;
             this.Name = "FrmAdventureSupport";
             this.ShowIcon = false;
-            this.Text = "Adventure assist program [v9]";
+            this.Text = "Adventure assist program [v10]";
             this.TopMost = true;
             this.gbxGoldCalculator.ResumeLayout(false);
             this.gbxGoldCalculator.PerformLayout();
@@ -445,6 +467,8 @@
         private System.Windows.Forms.LinkLabel lklDiscord;
         private System.Windows.Forms.Label lblMadeWithLove;
         private System.Windows.Forms.CheckBox cbxTrascended;
+        private System.Windows.Forms.Label lblPersonalityValue2;
+        private System.Windows.Forms.Label lblPersonalityValue;
     }
 }
 

@@ -12,9 +12,7 @@ namespace advAssistProgram
     {
         string[,] stats;
         int enemiesNumber = 206, personalityNumber = 35;
-        string filePath;
         string[,] personality;
-        const string ADDITIONAL_STATS_PATH = @"";
 
         public void UpdateData()
         {
@@ -174,7 +172,7 @@ namespace advAssistProgram
         public StatsManager()
         {
             stats = new string[,]
-            {
+{
                 {"Tame Dove","546.5","530.5","1.2","1.2","1.0"},
                 {"Weasel","512.75","538.75","1.2","1.2","1.0"},
                 {"Bat","543.0","511.5","1.01","1.55","1.0"},
@@ -381,7 +379,7 @@ namespace advAssistProgram
                 {"Celestial Wyrm","1103.5","1237.0","1.8","1.4","1.0"},
                 {"Golden Guardian Wyrm","1283.5","1629.0","1.8","1.2","1.0"},
                 {"Quintessence Dragon","1353.0","1663.0","1.24","2.11","1.0"},
-            };
+};
 
             personality = new string[,]
             {
@@ -421,11 +419,13 @@ namespace advAssistProgram
                 {"weak","0.5","1"},
                 {"weary","0.6","0.9"}
             };
-            Request();
+            _ = Request();
         }
-        private async void Request()
+        /// <summary>
+        /// Requests extra data to add to the array trough the github page and adds it to the array
+        /// </summary>
+        private async Task Request()
         {
-            string[] array;
             string risposta;
             using (HttpClient client = new HttpClient())
             {
@@ -433,33 +433,45 @@ namespace advAssistProgram
 
                 risposta = await client.GetStringAsync(url);
             }
-            int count = risposta.Count(f => f == '}');
-            array = new string[count];
-            string temp = risposta;
+            string[] array;
+            int count = risposta.Count(f => f == '-');
+
+            array = risposta.Split('\n');
             for (int i = 0; i < count; i++)
-            {
-                array[i] = temp.Substring(1, temp.IndexOf('-') - 1);
-                array[i].Replace("\n", "");
-                array[i].Replace("-", "");
-            }
+                array[i] = array[i].Replace("-", "");
+
+            enemiesNumber += count;
+            Append(count);
 
             for (int i = 0; i < count; i++)
             {
-                Append();
                 string value = array[i];
-                for (int p = 0; p < 6; p++)
-                {
-                    stats[enemiesNumber, p] = value.Substring(0, value.IndexOf(',') - 1);
-                    value.Remove(0, value.IndexOf(','));
-                }
+                /*string name = value.Substring(0, value.IndexOf(','));
+                string hp = value.Substring(0, value.IndexOf(','));
+                value = value.Substring(value.IndexOf(',') + 1);
+                string dipl = value.Substring(0, value.IndexOf(','));
+                value = value.Substring(value.IndexOf(',') + 1);
+                string pdef = value.Substring(0, value.IndexOf(','));
+                value = value.Substring(value.IndexOf(',') + 1);
+                string mdef = value.Substring(0, value.IndexOf(','));
+                value = value.Substring(value.IndexOf(',') + 1);
+                string cdef = value.Substring(0, value.IndexOf(','));*/
+
+                string[] part = value.Split(',');
+
+                stats[enemiesNumber - count + i, 0] = part[0];
+                stats[enemiesNumber - count + i, 1] = part[1];
+                stats[enemiesNumber - count + i, 2] = part[2];
+                stats[enemiesNumber - count + i, 3] = part[3];
+                stats[enemiesNumber - count + i, 4] = part[4];
+                stats[enemiesNumber - count + i, 5] = part[5];
             }
         }
 
-        private void Append()
+        private void Append(int count)
         {
-            enemiesNumber++;
             string[,] array = new string[enemiesNumber, 6];
-            for (int i = 0; i < enemiesNumber; i++)
+            for (int i = 0; i < enemiesNumber - count; i++)
                 for (int p = 0; p < 6; p++)
                     array[i, p] = stats[i, p];
             stats = array;

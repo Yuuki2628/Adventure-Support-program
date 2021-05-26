@@ -33,6 +33,8 @@
             this.txtGoldInput = new System.Windows.Forms.TextBox();
             this.gbxGoldCalculator = new System.Windows.Forms.GroupBox();
             this.gbxStats = new System.Windows.Forms.GroupBox();
+            this.lblPersonalityValue2 = new System.Windows.Forms.Label();
+            this.lblPersonalityValue = new System.Windows.Forms.Label();
             this.cbxTrascended = new System.Windows.Forms.CheckBox();
             this.lblMadeWithLove = new System.Windows.Forms.Label();
             this.lklDiscord = new System.Windows.Forms.LinkLabel();
@@ -58,8 +60,7 @@
             this.lblHP = new System.Windows.Forms.Label();
             this.cmbSelection = new System.Windows.Forms.ComboBox();
             this.lblSelect = new System.Windows.Forms.Label();
-            this.lblPersonalityValue = new System.Windows.Forms.Label();
-            this.lblPersonalityValue2 = new System.Windows.Forms.Label();
+            this.btnReload = new System.Windows.Forms.Button();
             this.gbxGoldCalculator.SuspendLayout();
             this.gbxStats.SuspendLayout();
             this.SuspendLayout();
@@ -114,6 +115,7 @@
             this.gbxStats.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbxStats.Controls.Add(this.btnReload);
             this.gbxStats.Controls.Add(this.lblPersonalityValue2);
             this.gbxStats.Controls.Add(this.lblPersonalityValue);
             this.gbxStats.Controls.Add(this.cbxTrascended);
@@ -147,6 +149,24 @@
             this.gbxStats.TabIndex = 1;
             this.gbxStats.TabStop = false;
             this.gbxStats.Text = "Enemy stats";
+            // 
+            // lblPersonalityValue2
+            // 
+            this.lblPersonalityValue2.AutoSize = true;
+            this.lblPersonalityValue2.Location = new System.Drawing.Point(227, 143);
+            this.lblPersonalityValue2.Name = "lblPersonalityValue2";
+            this.lblPersonalityValue2.Size = new System.Drawing.Size(72, 13);
+            this.lblPersonalityValue2.TabIndex = 26;
+            this.lblPersonalityValue2.Text = "00.00 / 00.00";
+            // 
+            // lblPersonalityValue
+            // 
+            this.lblPersonalityValue.AutoSize = true;
+            this.lblPersonalityValue.Location = new System.Drawing.Point(227, 126);
+            this.lblPersonalityValue.Name = "lblPersonalityValue";
+            this.lblPersonalityValue.Size = new System.Drawing.Size(90, 13);
+            this.lblPersonalityValue.TabIndex = 25;
+            this.lblPersonalityValue.Text = "Personality value:";
             // 
             // cbxTrascended
             // 
@@ -396,23 +416,15 @@
             this.lblSelect.TabIndex = 2;
             this.lblSelect.Text = "Select an enemy:";
             // 
-            // lblPersonalityValue
+            // btnReload
             // 
-            this.lblPersonalityValue.AutoSize = true;
-            this.lblPersonalityValue.Location = new System.Drawing.Point(227, 126);
-            this.lblPersonalityValue.Name = "lblPersonalityValue";
-            this.lblPersonalityValue.Size = new System.Drawing.Size(90, 13);
-            this.lblPersonalityValue.TabIndex = 25;
-            this.lblPersonalityValue.Text = "Personality value:";
-            // 
-            // lblPersonalityValue2
-            // 
-            this.lblPersonalityValue2.AutoSize = true;
-            this.lblPersonalityValue2.Location = new System.Drawing.Point(227, 143);
-            this.lblPersonalityValue2.Name = "lblPersonalityValue2";
-            this.lblPersonalityValue2.Size = new System.Drawing.Size(72, 13);
-            this.lblPersonalityValue2.TabIndex = 26;
-            this.lblPersonalityValue2.Text = "00.00 / 00.00";
+            this.btnReload.Location = new System.Drawing.Point(228, 97);
+            this.btnReload.Name = "btnReload";
+            this.btnReload.Size = new System.Drawing.Size(89, 23);
+            this.btnReload.TabIndex = 27;
+            this.btnReload.Text = "Reload stats";
+            this.btnReload.UseVisualStyleBackColor = true;
+            this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
             // 
             // FrmAdventureSupport
             // 
@@ -469,6 +481,7 @@
         private System.Windows.Forms.CheckBox cbxTrascended;
         private System.Windows.Forms.Label lblPersonalityValue2;
         private System.Windows.Forms.Label lblPersonalityValue;
+        private System.Windows.Forms.Button btnReload;
     }
 }
 

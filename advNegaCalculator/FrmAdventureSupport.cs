@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -21,18 +22,7 @@ namespace advAssistProgram
             InitializeComponent();
 
             s = new StatsManager();
-            s.UpdateData();
-            for (int i = 0; i < s.getEnemiesCount(); i++)
-            {
-                cmbSelection.Items.Add(s.getName(i));
-            }
-            for (int i = 0; i < s.getPersonalityCount(); i++)
-            {
-                if (s.getPersonality(i) != null)
-                    cmbPersonality.Items.Add(s.getPersonality(i));
-            }
-            cmbSelection.SelectedIndex = 0;
-            cmbPersonality.SelectedIndex = 0;
+            Reload();
         }
 
         private void btnElaborate_Click(object sender, EventArgs e)
@@ -103,8 +93,8 @@ namespace advAssistProgram
 
                 double hp = Convert.ToDouble(hpDef), dipl = Convert.ToDouble(diplDef);
                 // conversion of the hps to int to be able to use them to calculate the final hps
-                int hpO = Convert.ToInt32(s.getHP(cmbSelection.SelectedIndex).Remove(s.getHP(cmbSelection.SelectedIndex).IndexOf(".")));
-                int diplO = Convert.ToInt32(s.getDiplomacy(cmbSelection.SelectedIndex).Remove(s.getDiplomacy(cmbSelection.SelectedIndex).IndexOf(".")));
+                int hpO = Convert.ToInt32(s.getHP(cmbSelection.SelectedIndex).Replace(".", ""));
+                int diplO = Convert.ToInt32(s.getDiplomacy(cmbSelection.SelectedIndex).Replace(".", ""));
 
                 hp = hp * hpO * multiplier;
                 dipl = dipl * diplO * multiplier;
@@ -166,6 +156,29 @@ namespace advAssistProgram
         {
             cmbSelection.SelectedIndex += 1;
             cmbSelection.SelectedIndex -= 1;
+        }
+
+        private void Reload()
+        {
+            cmbPersonality.Items.Clear();
+            cmbSelection.Items.Clear();
+            s.UpdateData();
+            for (int i = 0; i < s.getEnemiesCount(); i++)
+            {
+                cmbSelection.Items.Add(s.getName(i));
+            }
+            for (int i = 0; i < s.getPersonalityCount(); i++)
+            {
+                if (s.getPersonality(i) != null)
+                    cmbPersonality.Items.Add(s.getPersonality(i));
+            }
+            cmbSelection.SelectedIndex = 0;
+            cmbPersonality.SelectedIndex = 0;
+        }
+
+        private void btnReload_Click(object sender, EventArgs e)
+        {
+            Reload();
         }
     }
 }

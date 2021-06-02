@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblInsert = new System.Windows.Forms.Label();
             this.btnElaborate = new System.Windows.Forms.Button();
             this.txtGoldInput = new System.Windows.Forms.TextBox();
             this.gbxGoldCalculator = new System.Windows.Forms.GroupBox();
             this.gbxStats = new System.Windows.Forms.GroupBox();
+            this.btnReload = new System.Windows.Forms.Button();
             this.lblPersonalityValue2 = new System.Windows.Forms.Label();
             this.lblPersonalityValue = new System.Windows.Forms.Label();
             this.cbxTrascended = new System.Windows.Forms.CheckBox();
@@ -60,7 +62,7 @@
             this.lblHP = new System.Windows.Forms.Label();
             this.cmbSelection = new System.Windows.Forms.ComboBox();
             this.lblSelect = new System.Windows.Forms.Label();
-            this.btnReload = new System.Windows.Forms.Button();
+            this.tmrReload = new System.Windows.Forms.Timer(this.components);
             this.gbxGoldCalculator.SuspendLayout();
             this.gbxStats.SuspendLayout();
             this.SuspendLayout();
@@ -149,6 +151,16 @@
             this.gbxStats.TabIndex = 1;
             this.gbxStats.TabStop = false;
             this.gbxStats.Text = "Enemy stats";
+            // 
+            // btnReload
+            // 
+            this.btnReload.Location = new System.Drawing.Point(228, 97);
+            this.btnReload.Name = "btnReload";
+            this.btnReload.Size = new System.Drawing.Size(89, 23);
+            this.btnReload.TabIndex = 27;
+            this.btnReload.Text = "Reload stats";
+            this.btnReload.UseVisualStyleBackColor = true;
+            this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
             // 
             // lblPersonalityValue2
             // 
@@ -416,15 +428,11 @@
             this.lblSelect.TabIndex = 2;
             this.lblSelect.Text = "Select an enemy:";
             // 
-            // btnReload
+            // tmrReload
             // 
-            this.btnReload.Location = new System.Drawing.Point(228, 97);
-            this.btnReload.Name = "btnReload";
-            this.btnReload.Size = new System.Drawing.Size(89, 23);
-            this.btnReload.TabIndex = 27;
-            this.btnReload.Text = "Reload stats";
-            this.btnReload.UseVisualStyleBackColor = true;
-            this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
+            this.tmrReload.Enabled = true;
+            this.tmrReload.Interval = 1000;
+            this.tmrReload.Tick += new System.EventHandler(this.tmrReload_Tick);
             // 
             // FrmAdventureSupport
             // 
@@ -482,6 +490,7 @@
         private System.Windows.Forms.Label lblPersonalityValue2;
         private System.Windows.Forms.Label lblPersonalityValue;
         private System.Windows.Forms.Button btnReload;
+        private System.Windows.Forms.Timer tmrReload;
     }
 }
 

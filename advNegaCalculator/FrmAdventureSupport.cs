@@ -22,6 +22,7 @@ namespace advAssistProgram
             InitializeComponent();
 
             s = new StatsManager();
+
             Reload();
         }
 
@@ -93,8 +94,17 @@ namespace advAssistProgram
 
                 double hp = Convert.ToDouble(hpDef), dipl = Convert.ToDouble(diplDef);
                 // conversion of the hps to int to be able to use them to calculate the final hps
-                int hpO = Convert.ToInt32(s.getHP(cmbSelection.SelectedIndex).Replace(".", ""));
-                int diplO = Convert.ToInt32(s.getDiplomacy(cmbSelection.SelectedIndex).Replace(".", ""));
+                int hpO, diplO;
+                if (cmbSelection.SelectedIndex < 206)
+                {
+                    hpO = Convert.ToInt32(s.getHP(cmbSelection.SelectedIndex).Remove(s.getHP(cmbSelection.SelectedIndex).IndexOf('.')));
+                    diplO = Convert.ToInt32(s.getDiplomacy(cmbSelection.SelectedIndex).Remove(s.getDiplomacy(cmbSelection.SelectedIndex).IndexOf('.')));
+                }
+                else
+                {
+                    hpO = Convert.ToInt32(s.getHP(cmbSelection.SelectedIndex).Replace(".", ""));
+                    diplO = Convert.ToInt32(s.getDiplomacy(cmbSelection.SelectedIndex).Replace(".", ""));
+                }
 
                 hp = hp * hpO * multiplier;
                 dipl = dipl * diplO * multiplier;
@@ -162,7 +172,6 @@ namespace advAssistProgram
         {
             cmbPersonality.Items.Clear();
             cmbSelection.Items.Clear();
-            s.UpdateData();
             for (int i = 0; i < s.getEnemiesCount(); i++)
             {
                 cmbSelection.Items.Add(s.getName(i));
@@ -179,6 +188,12 @@ namespace advAssistProgram
         private void btnReload_Click(object sender, EventArgs e)
         {
             Reload();
+        }
+
+        private void tmrReload_Tick(object sender, EventArgs e)
+        {
+            Reload();
+            tmrReload.Enabled = false;
         }
     }
 }

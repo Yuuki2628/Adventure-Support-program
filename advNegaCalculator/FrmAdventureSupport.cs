@@ -64,8 +64,16 @@ namespace advAssistProgram
                 lblPersuasionDef2.Text = s.getPersuasionDefence(cmbSelection.SelectedIndex);
                 if (exeTimes != 0)
                 {
-                    cmbPersonality.SelectedIndex += 1;//updates all the stats that are not updated here triggering the below cycle
-                    cmbPersonality.SelectedIndex -= 1;
+                    if (cmbPersonality.SelectedIndex < cmbPersonality.Items.Count / 2)
+                    {
+                        cmbPersonality.SelectedIndex += 1; //updates all the stats that are not updated here triggering the below cycle
+                        cmbPersonality.SelectedIndex -= 1;
+                    }
+                    else
+                    {
+                        cmbPersonality.SelectedIndex -= 1; //updates all the stats that are not updated here triggering the below cycle
+                        cmbPersonality.SelectedIndex += 1;
+                    }
                 }
             }
             else
@@ -82,56 +90,51 @@ namespace advAssistProgram
             }
             if (part)
             {
-                int multiplier = 1; //multiplies every stat, if trascended is selected it'll multiply every hp stat by 4
+                int trascendedMultiplier = 1; //multiplies every stat, if trascended is selected it'll multiply every hp stat by 4
                 if (exeTimes == 0)
                     exeTimes++;
                 if (cbxTrascended.Checked == true)
-                    multiplier = 4;
-                string hpDef = s.getDef(cmbPersonality.SelectedIndex), diplDef = s.getDDef(cmbPersonality.SelectedIndex);
-                lblPersonalityValue2.Text = s.getDef(cmbPersonality.SelectedIndex) + " / " + s.getDDef(cmbPersonality.SelectedIndex);
-                hpDef = hpDef.Replace(".", ",");
-                diplDef = diplDef.Replace(".", ",");
+                    trascendedMultiplier = 4;
+                string stringHpResistance = s.getDef(cmbPersonality.SelectedIndex), stingDiplomacyResistance = s.getDDef(cmbPersonality.SelectedIndex);
+                lblPersonalityValue2.Text = stringHpResistance + " / " + stingDiplomacyResistance;
+                stringHpResistance = stringHpResistance.Replace(".", ",");
+                stingDiplomacyResistance = stingDiplomacyResistance.Replace(".", ",");
 
-                double hp = Convert.ToDouble(hpDef), dipl = Convert.ToDouble(diplDef);
+                double hpResistance = Convert.ToDouble(stringHpResistance), diplomacyResistance = Convert.ToDouble(stingDiplomacyResistance);
                 // conversion of the hps to int to be able to use them to calculate the final hps
-                int hpO, diplO;
+                int hp, dipl;
                 if (cmbSelection.SelectedIndex < 206)
                 {
-                    hpO = Convert.ToInt32(s.getHP(cmbSelection.SelectedIndex).Remove(s.getHP(cmbSelection.SelectedIndex).IndexOf('.')));
-                    diplO = Convert.ToInt32(s.getDiplomacy(cmbSelection.SelectedIndex).Remove(s.getDiplomacy(cmbSelection.SelectedIndex).IndexOf('.')));
+                    hp = Convert.ToInt32(s.getHP(cmbSelection.SelectedIndex).Remove(s.getHP(cmbSelection.SelectedIndex).IndexOf('.')));
+                    dipl = Convert.ToInt32(s.getDiplomacy(cmbSelection.SelectedIndex).Remove(s.getDiplomacy(cmbSelection.SelectedIndex).IndexOf('.')));
                 }
                 else
                 {
-                    hpO = Convert.ToInt32(s.getHP(cmbSelection.SelectedIndex).Replace(".", ""));
-                    diplO = Convert.ToInt32(s.getDiplomacy(cmbSelection.SelectedIndex).Replace(".", ""));
+                    hp = Convert.ToInt32(s.getHP(cmbSelection.SelectedIndex));
+                    dipl = Convert.ToInt32(s.getDiplomacy(cmbSelection.SelectedIndex));
                 }
 
-                hp = hp * hpO * multiplier;
-                dipl = dipl * diplO * multiplier;
+                hpResistance = hpResistance * hp * trascendedMultiplier;
+                diplomacyResistance = diplomacyResistance * dipl * trascendedMultiplier;
 
-                Math.Round(hp, 1);
-                Math.Round(dipl, 1); //round them to 1 decimal 
+                Math.Round(hpResistance, 1);
+                Math.Round(diplomacyResistance, 1); //round them to 1 decimal 
 
-                double finalStab = hp, finalMagic = hp, finalDiplo = dipl;
+                double stabHp = hpResistance, magicHp = hpResistance, diplHp = diplomacyResistance;
 
-                hpDef = Convert.ToString(hp).Replace(",", ".");
-                diplDef = Convert.ToString(dipl).Replace(",", ".");
-
-                if (hpDef.IndexOf(".") < 0) //if they're missing the .0 at th end this adds it
-                    hpDef += ".0";
-                if (diplDef.IndexOf(".") < 0)
-                    diplDef += ".0";
+                stringHpResistance = Convert.ToString(hpResistance).Replace(",", ".");
+                stingDiplomacyResistance = Convert.ToString(diplomacyResistance).Replace(",", ".");
 
                 //turns the various weaknesses into doubles to use them
-                finalStab = finalStab * Convert.ToDouble(s.getPhysicalDefence(cmbSelection.SelectedIndex).Replace(".", ","));
-                finalMagic = finalMagic * Convert.ToDouble(s.getMagicalDefence(cmbSelection.SelectedIndex).Replace(".", ","));
-                finalDiplo = finalDiplo * Convert.ToDouble(s.getPersuasionDefence(cmbSelection.SelectedIndex).Replace(".", ","));
+                stabHp = stabHp * Convert.ToDouble(s.getPhysicalDefence(cmbSelection.SelectedIndex).Replace(".", ","));
+                magicHp = magicHp * Convert.ToDouble(s.getMagicalDefence(cmbSelection.SelectedIndex).Replace(".", ","));
+                diplHp = diplHp * Convert.ToDouble(s.getPersuasionDefence(cmbSelection.SelectedIndex).Replace(".", ","));
 
                 string fS, sM, fD;
 
-                fS = Convert.ToString(finalStab).Replace(",", ".");
-                sM = Convert.ToString(finalMagic).Replace(",", ".");
-                fD = Convert.ToString(finalDiplo).Replace(",", ".");
+                fS = Convert.ToString(stabHp).Replace(",", ".");
+                sM = Convert.ToString(magicHp).Replace(",", ".");
+                fD = Convert.ToString(diplHp).Replace(",", ".");
 
                 if (fS.IndexOf(".") < 0) //if they're missing the .0 at th end this adds it
                     fS += ".0";
@@ -151,21 +154,18 @@ namespace advAssistProgram
 
         }
 
-        private void lklHelp_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("All the stats shown here are not final, they can increase or decrease according to the win rate.", "Stats");
-        }
-
-        private void lklDiscord_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            ProcessStartInfo sInfo = new ProcessStartInfo("https://discord.gg/vQQHZWR6dn");
-            Process.Start(sInfo);
-        }
-
         private void cbxTrascended_CheckedChanged(object sender, EventArgs e)
         {
-            cmbSelection.SelectedIndex += 1;
-            cmbSelection.SelectedIndex -= 1;
+            if (cmbSelection.SelectedIndex <= cmbSelection.Items.Count / 2)
+            {
+                cmbSelection.SelectedIndex += 1;
+                cmbSelection.SelectedIndex -= 1;
+            }
+            else
+            {
+                cmbSelection.SelectedIndex -= 1;
+                cmbSelection.SelectedIndex += 1;
+            }
         }
 
         private void Reload()

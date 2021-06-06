@@ -39,8 +39,6 @@
             this.lblPersonalityValue = new System.Windows.Forms.Label();
             this.cbxTrascended = new System.Windows.Forms.CheckBox();
             this.lblMadeWithLove = new System.Windows.Forms.Label();
-            this.lklDiscord = new System.Windows.Forms.LinkLabel();
-            this.lklHelp = new System.Windows.Forms.LinkLabel();
             this.lblDiplomacyEverything2 = new System.Windows.Forms.Label();
             this.lblMagicEverything2 = new System.Windows.Forms.Label();
             this.lblStabEverything2 = new System.Windows.Forms.Label();
@@ -122,8 +120,6 @@
             this.gbxStats.Controls.Add(this.lblPersonalityValue);
             this.gbxStats.Controls.Add(this.cbxTrascended);
             this.gbxStats.Controls.Add(this.lblMadeWithLove);
-            this.gbxStats.Controls.Add(this.lklDiscord);
-            this.gbxStats.Controls.Add(this.lklHelp);
             this.gbxStats.Controls.Add(this.lblDiplomacyEverything2);
             this.gbxStats.Controls.Add(this.lblMagicEverything2);
             this.gbxStats.Controls.Add(this.lblStabEverything2);
@@ -194,33 +190,11 @@
             // lblMadeWithLove
             // 
             this.lblMadeWithLove.AutoSize = true;
-            this.lblMadeWithLove.Location = new System.Drawing.Point(187, 224);
+            this.lblMadeWithLove.Location = new System.Drawing.Point(199, 224);
             this.lblMadeWithLove.Name = "lblMadeWithLove";
             this.lblMadeWithLove.Size = new System.Drawing.Size(123, 13);
             this.lblMadeWithLove.TabIndex = 23;
             this.lblMadeWithLove.Text = "Made with love by Yuuki";
-            // 
-            // lklDiscord
-            // 
-            this.lklDiscord.AutoSize = true;
-            this.lklDiscord.Location = new System.Drawing.Point(262, 201);
-            this.lklDiscord.Name = "lklDiscord";
-            this.lklDiscord.Size = new System.Drawing.Size(43, 13);
-            this.lklDiscord.TabIndex = 22;
-            this.lklDiscord.TabStop = true;
-            this.lklDiscord.Text = "Discord";
-            this.lklDiscord.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lklDiscord_LinkClicked);
-            // 
-            // lklHelp
-            // 
-            this.lklHelp.AutoSize = true;
-            this.lklHelp.Location = new System.Drawing.Point(276, 184);
-            this.lklHelp.Name = "lklHelp";
-            this.lklHelp.Size = new System.Drawing.Size(29, 13);
-            this.lklHelp.TabIndex = 21;
-            this.lklHelp.TabStop = true;
-            this.lklHelp.Text = "Help";
-            this.lklHelp.Click += new System.EventHandler(this.lklHelp_Click);
             // 
             // lblDiplomacyEverything2
             // 
@@ -445,7 +419,7 @@
             this.MaximizeBox = false;
             this.Name = "FrmAdventureSupport";
             this.ShowIcon = false;
-            this.Text = "Adventure assist program [v10]";
+            this.Text = "Adventure assist program [v10.2]";
             this.TopMost = true;
             this.gbxGoldCalculator.ResumeLayout(false);
             this.gbxGoldCalculator.PerformLayout();
@@ -483,8 +457,6 @@
         private System.Windows.Forms.Label lblDiplomacyEverything;
         private System.Windows.Forms.Label lblMagicEverything;
         private System.Windows.Forms.Label lblStabEverything;
-        private System.Windows.Forms.LinkLabel lklHelp;
-        private System.Windows.Forms.LinkLabel lklDiscord;
         private System.Windows.Forms.Label lblMadeWithLove;
         private System.Windows.Forms.CheckBox cbxTrascended;
         private System.Windows.Forms.Label lblPersonalityValue2;

@@ -61,7 +61,6 @@
             this.cmbSelection = new System.Windows.Forms.ComboBox();
             this.lblSelect = new System.Windows.Forms.Label();
             this.tmrReload = new System.Windows.Forms.Timer(this.components);
-            this.btnDownload = new System.Windows.Forms.Button();
             this.gbxGoldCalculator.SuspendLayout();
             this.gbxStats.SuspendLayout();
             this.SuspendLayout();
@@ -116,7 +115,6 @@
             this.gbxStats.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbxStats.Controls.Add(this.btnDownload);
             this.gbxStats.Controls.Add(this.btnReload);
             this.gbxStats.Controls.Add(this.lblPersonalityValue2);
             this.gbxStats.Controls.Add(this.lblPersonalityValue);
@@ -152,9 +150,9 @@
             // 
             // btnReload
             // 
-            this.btnReload.Location = new System.Drawing.Point(202, 97);
+            this.btnReload.Location = new System.Drawing.Point(228, 97);
             this.btnReload.Name = "btnReload";
-            this.btnReload.Size = new System.Drawing.Size(115, 23);
+            this.btnReload.Size = new System.Drawing.Size(89, 23);
             this.btnReload.TabIndex = 27;
             this.btnReload.Text = "Reload stats";
             this.btnReload.UseVisualStyleBackColor = true;
@@ -163,7 +161,7 @@
             // lblPersonalityValue2
             // 
             this.lblPersonalityValue2.AutoSize = true;
-            this.lblPersonalityValue2.Location = new System.Drawing.Point(223, 168);
+            this.lblPersonalityValue2.Location = new System.Drawing.Point(227, 143);
             this.lblPersonalityValue2.Name = "lblPersonalityValue2";
             this.lblPersonalityValue2.Size = new System.Drawing.Size(72, 13);
             this.lblPersonalityValue2.TabIndex = 26;
@@ -172,7 +170,7 @@
             // lblPersonalityValue
             // 
             this.lblPersonalityValue.AutoSize = true;
-            this.lblPersonalityValue.Location = new System.Drawing.Point(223, 151);
+            this.lblPersonalityValue.Location = new System.Drawing.Point(227, 126);
             this.lblPersonalityValue.Name = "lblPersonalityValue";
             this.lblPersonalityValue.Size = new System.Drawing.Size(90, 13);
             this.lblPersonalityValue.TabIndex = 25;
@@ -410,16 +408,6 @@
             this.tmrReload.Interval = 1000;
             this.tmrReload.Tick += new System.EventHandler(this.tmrReload_Tick);
             // 
-            // btnDownload
-            // 
-            this.btnDownload.Location = new System.Drawing.Point(202, 121);
-            this.btnDownload.Name = "btnDownload";
-            this.btnDownload.Size = new System.Drawing.Size(115, 23);
-            this.btnDownload.TabIndex = 28;
-            this.btnDownload.Text = "Redownload stats";
-            this.btnDownload.UseVisualStyleBackColor = true;
-            this.btnDownload.Click += new System.EventHandler(this.btnDownload_Click);
-            // 
             // FrmAdventureSupport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -475,7 +463,6 @@
         private System.Windows.Forms.Label lblPersonalityValue;
         private System.Windows.Forms.Button btnReload;
         private System.Windows.Forms.Timer tmrReload;
-        private System.Windows.Forms.Button btnDownload;
     }
 }
 

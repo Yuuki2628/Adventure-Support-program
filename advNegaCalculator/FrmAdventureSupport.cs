@@ -195,5 +195,12 @@ namespace advAssistProgram
             Reload();
             tmrReload.Enabled = false;
         }
+
+        private void btnDownload_Click(object sender, EventArgs e)
+        {
+            s = new StatsManager();
+
+            tmrReload.Enabled = true;
+        }
     }
 }

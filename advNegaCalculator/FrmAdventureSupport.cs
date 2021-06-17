@@ -21,9 +21,7 @@ namespace advAssistProgram
         {
             InitializeComponent();
 
-            s = new StatsManager();
-
-            Reload();
+            FullReload();
         }
 
         private void btnElaborate_Click(object sender, EventArgs e)
@@ -98,8 +96,9 @@ namespace advAssistProgram
                 string stringHpResistance = s.getDef(cmbPersonality.SelectedIndex), stingDiplomacyResistance = s.getDDef(cmbPersonality.SelectedIndex);
                 lblPersonalityValue2.Text = stringHpResistance + " / " + stingDiplomacyResistance;
 
-                double hp = Convert.ToDouble(stringHpResistance), dipl = Convert.ToDouble(stingDiplomacyResistance);
+                double hpRes = Convert.ToDouble(stringHpResistance.Replace(".", ",")), diplRes = Convert.ToDouble(stingDiplomacyResistance.Replace(".", ","));
                 // conversion of the hps to int to be able to use them to calculate the final hps
+                double hp, dipl;
                 if (cmbSelection.SelectedIndex < 206)
                 {
                     hp = Convert.ToInt32(s.getHP(cmbSelection.SelectedIndex).Remove(s.getHP(cmbSelection.SelectedIndex).IndexOf('.')));
@@ -111,18 +110,30 @@ namespace advAssistProgram
                     dipl = Convert.ToInt32(s.getDiplomacy(cmbSelection.SelectedIndex));
                 }
 
-                hp = hp * trascendedMultiplier;
-                dipl = dipl * trascendedMultiplier;
+                hp = hp * hpRes * trascendedMultiplier;
+                dipl = dipl * diplRes * trascendedMultiplier;
 
                 Math.Round(hp, 1);
                 Math.Round(dipl, 1); //round them to 1 decimal 
 
                 double stabHp = hp, magicHp = hp, diplHp = dipl;
+                string stringStabHp, stringMagicHp, stringDiplHp;
+
+                stringStabHp = s.getPhysicalDefence(cmbSelection.SelectedIndex);
+                stringMagicHp = s.getMagicalDefence(cmbSelection.SelectedIndex);
+                stringDiplHp = s.getPersuasionDefence(cmbSelection.SelectedIndex);
+
+                if (stringStabHp.Contains(".0"))
+                    stringStabHp = stringStabHp.Remove(stringStabHp.IndexOf("."));
+                if (stringMagicHp.Contains(".0"))
+                    stringMagicHp = stringMagicHp.Remove(stringMagicHp.IndexOf("."));
+                if (stringDiplHp.Contains(".0"))
+                    stringDiplHp = stringDiplHp.Remove(stringDiplHp.IndexOf("."));
 
                 //turns the various weaknesses into doubles to use them
-                stabHp = stabHp * Convert.ToDouble(s.getPhysicalDefence(cmbSelection.SelectedIndex).Replace(".", ","));
-                magicHp = magicHp * Convert.ToDouble(s.getMagicalDefence(cmbSelection.SelectedIndex).Replace(".", ","));
-                diplHp = diplHp * Convert.ToDouble(s.getPersuasionDefence(cmbSelection.SelectedIndex).Replace(".", ","));
+                stabHp = stabHp * Convert.ToDouble(stringStabHp.Replace(".", ","));
+                magicHp = magicHp * Convert.ToDouble(stringMagicHp.Replace(".", ","));
+                diplHp = diplHp * Convert.ToDouble(stringDiplHp.Replace(".", ","));
 
                 string fS, sM, fD;
 
@@ -136,6 +147,17 @@ namespace advAssistProgram
                     sM += ".0";
                 if (fD.IndexOf(".") < 0)
                     fD += ".0";
+
+                /*string debug = $"{s.getHP(cmbSelection.SelectedIndex)}\n" +
+                    $"{s.getDiplomacy(cmbSelection.SelectedIndex)}\n" +
+                    $"{s.getDef(cmbPersonality.SelectedIndex)}\n" +
+                    $"{s.getDDef(cmbPersonality.SelectedIndex)}\n" +
+                    $"{s.getPhysicalDefence(cmbSelection.SelectedIndex)}\n" +
+                    $"{s.getMagicalDefence(cmbSelection.SelectedIndex)}\n" +
+                    $"{s.getPersuasionDefence(cmbSelection.SelectedIndex)}";
+
+                MessageBox.Show(debug, "Debug");*/
+
 
                 //all the math is done, this outputs the results
                 lblStabEverything2.Text = fS;
@@ -178,6 +200,26 @@ namespace advAssistProgram
             cmbPersonality.SelectedIndex = 0;
         }
 
+        private void FullReload()
+        {
+            s = new StatsManager();
+
+            cmbPersonality.Items.Clear();
+            cmbSelection.Items.Clear();
+            for (int i = 0; i < s.getEnemiesCount(); i++)
+            {
+                cmbSelection.Items.Add(s.getName(i));
+            }
+            for (int i = 0; i < s.getPersonalityCount(); i++)
+            {
+                if (s.getPersonality(i) != null)
+                    cmbPersonality.Items.Add(s.getPersonality(i));
+            }
+            cmbSelection.SelectedIndex = 0;
+            cmbPersonality.SelectedIndex = 0;
+            tmrReload.Start();
+        }
+
         private void btnReload_Click(object sender, EventArgs e)
         {
             Reload();
@@ -187,6 +229,13 @@ namespace advAssistProgram
         {
             Reload();
             tmrReload.Stop();
+        }
+
+        private void btnFullReload_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Are you sure you want to do this?\nUse the fully reload option only when you want to redownload all the additionalstats, if you don't know what that means just press no", "Fully reload", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dr == DialogResult.Yes)
+                FullReload();
         }
     }
 }

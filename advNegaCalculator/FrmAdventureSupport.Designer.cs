@@ -61,6 +61,7 @@
             this.cmbSelection = new System.Windows.Forms.ComboBox();
             this.lblSelect = new System.Windows.Forms.Label();
             this.tmrReload = new System.Windows.Forms.Timer(this.components);
+            this.btnFullReload = new System.Windows.Forms.Button();
             this.gbxGoldCalculator.SuspendLayout();
             this.gbxStats.SuspendLayout();
             this.SuspendLayout();
@@ -115,6 +116,7 @@
             this.gbxStats.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbxStats.Controls.Add(this.btnFullReload);
             this.gbxStats.Controls.Add(this.btnReload);
             this.gbxStats.Controls.Add(this.lblPersonalityValue2);
             this.gbxStats.Controls.Add(this.lblPersonalityValue);
@@ -161,7 +163,7 @@
             // lblPersonalityValue2
             // 
             this.lblPersonalityValue2.AutoSize = true;
-            this.lblPersonalityValue2.Location = new System.Drawing.Point(227, 143);
+            this.lblPersonalityValue2.Location = new System.Drawing.Point(227, 172);
             this.lblPersonalityValue2.Name = "lblPersonalityValue2";
             this.lblPersonalityValue2.Size = new System.Drawing.Size(72, 13);
             this.lblPersonalityValue2.TabIndex = 26;
@@ -170,7 +172,7 @@
             // lblPersonalityValue
             // 
             this.lblPersonalityValue.AutoSize = true;
-            this.lblPersonalityValue.Location = new System.Drawing.Point(227, 126);
+            this.lblPersonalityValue.Location = new System.Drawing.Point(227, 159);
             this.lblPersonalityValue.Name = "lblPersonalityValue";
             this.lblPersonalityValue.Size = new System.Drawing.Size(90, 13);
             this.lblPersonalityValue.TabIndex = 25;
@@ -408,6 +410,16 @@
             this.tmrReload.Interval = 1000;
             this.tmrReload.Tick += new System.EventHandler(this.tmrReload_Tick);
             // 
+            // btnFullReload
+            // 
+            this.btnFullReload.Location = new System.Drawing.Point(228, 121);
+            this.btnFullReload.Name = "btnFullReload";
+            this.btnFullReload.Size = new System.Drawing.Size(89, 35);
+            this.btnFullReload.TabIndex = 28;
+            this.btnFullReload.Text = "Fully reload stats";
+            this.btnFullReload.UseVisualStyleBackColor = true;
+            this.btnFullReload.Click += new System.EventHandler(this.btnFullReload_Click);
+            // 
             // FrmAdventureSupport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -463,6 +475,7 @@
         private System.Windows.Forms.Label lblPersonalityValue;
         private System.Windows.Forms.Button btnReload;
         private System.Windows.Forms.Timer tmrReload;
+        private System.Windows.Forms.Button btnFullReload;
     }
 }
 

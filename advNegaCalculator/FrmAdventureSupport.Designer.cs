@@ -419,7 +419,7 @@
             this.MaximizeBox = false;
             this.Name = "FrmAdventureSupport";
             this.ShowIcon = false;
-            this.Text = "Adventure assist program [v10.2]";
+            this.Text = "Adventure assist program [v10.3]";
             this.TopMost = true;
             this.gbxGoldCalculator.ResumeLayout(false);
             this.gbxGoldCalculator.PerformLayout();

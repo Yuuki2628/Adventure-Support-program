@@ -97,12 +97,9 @@ namespace advAssistProgram
                     trascendedMultiplier = 4;
                 string stringHpResistance = s.getDef(cmbPersonality.SelectedIndex), stingDiplomacyResistance = s.getDDef(cmbPersonality.SelectedIndex);
                 lblPersonalityValue2.Text = stringHpResistance + " / " + stingDiplomacyResistance;
-                stringHpResistance = stringHpResistance.Replace(".", ",");
-                stingDiplomacyResistance = stingDiplomacyResistance.Replace(".", ",");
 
-                double hpResistance = Convert.ToDouble(stringHpResistance), diplomacyResistance = Convert.ToDouble(stingDiplomacyResistance);
+                double hp = Convert.ToDouble(stringHpResistance), dipl = Convert.ToDouble(stingDiplomacyResistance);
                 // conversion of the hps to int to be able to use them to calculate the final hps
-                int hp, dipl;
                 if (cmbSelection.SelectedIndex < 206)
                 {
                     hp = Convert.ToInt32(s.getHP(cmbSelection.SelectedIndex).Remove(s.getHP(cmbSelection.SelectedIndex).IndexOf('.')));
@@ -114,16 +111,13 @@ namespace advAssistProgram
                     dipl = Convert.ToInt32(s.getDiplomacy(cmbSelection.SelectedIndex));
                 }
 
-                hpResistance = hpResistance * hp * trascendedMultiplier;
-                diplomacyResistance = diplomacyResistance * dipl * trascendedMultiplier;
+                hp = hp * trascendedMultiplier;
+                dipl = dipl * trascendedMultiplier;
 
-                Math.Round(hpResistance, 1);
-                Math.Round(diplomacyResistance, 1); //round them to 1 decimal 
+                Math.Round(hp, 1);
+                Math.Round(dipl, 1); //round them to 1 decimal 
 
-                double stabHp = hpResistance, magicHp = hpResistance, diplHp = diplomacyResistance;
-
-                stringHpResistance = Convert.ToString(hpResistance).Replace(",", ".");
-                stingDiplomacyResistance = Convert.ToString(diplomacyResistance).Replace(",", ".");
+                double stabHp = hp, magicHp = hp, diplHp = dipl;
 
                 //turns the various weaknesses into doubles to use them
                 stabHp = stabHp * Convert.ToDouble(s.getPhysicalDefence(cmbSelection.SelectedIndex).Replace(".", ","));
@@ -150,8 +144,7 @@ namespace advAssistProgram
             }
             else
                 if (exeTimes == 0) //if it's the first cycle it'll skip the error message
-                MessageBox.Show("You can't get the personality of a non-existent creature", "Error");
-
+                    MessageBox.Show("You can't get the personality of a non-existent creature", "Error");
         }
 
         private void cbxTrascended_CheckedChanged(object sender, EventArgs e)
@@ -193,7 +186,7 @@ namespace advAssistProgram
         private void tmrReload_Tick(object sender, EventArgs e)
         {
             Reload();
-            tmrReload.Enabled = false;
+            tmrReload.Stop();
         }
     }
 }

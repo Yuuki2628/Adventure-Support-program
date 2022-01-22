@@ -7,5 +7,5 @@
 -Legacy Yuuki,2628,2628,1.2,1.6,1.8
 -Yuuki,3500,2000,0.9,1.1,2.0
 -Opinions,2000,3000,1.0,1.0,1.5
--Ultimate Despair,500,4000,4.0,2.5,0.9
 -Elemental Dragon,3000,3000,1.6,1.2,1.0
+-Ultimate Despair,500,4000,4.0,2.5,0.9
